@@ -23,7 +23,14 @@ const defaultState = {
 	generalEmail: '',
 	pw: '',
 	referral: '',
+	registerError: null,
 };
+
+function setErrorMsg(error) {
+	return {
+		registerError: error.message
+	}
+}
 
 export default class Register extends Component {
 	state = defaultState;
@@ -100,7 +107,8 @@ export default class Register extends Component {
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
-		auth(this.state);
+		auth(this.state)
+			.catch(e => this.setState(setErrorMsg(e)));
 	};
 	handleReset = (e) => {
 		e.preventDefault();
@@ -126,6 +134,7 @@ export default class Register extends Component {
 			email,
 			generalEmail,
 			referral,
+			registerError,
 		} = this.state;
 
 		return (
@@ -503,6 +512,14 @@ export default class Register extends Component {
 							/>
 						</label>
 					</div>
+					{
+						registerError &&
+						<div className="alert alert-danger" role="alert">
+							<span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							<span className="sr-only">Error:</span>
+							&nbsp;{registerError}
+						</div>
+					}
 					<button type="reset">Reset</button>
 					<button type="submit">Register</button>
 				</form>
