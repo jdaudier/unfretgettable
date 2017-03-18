@@ -1,0 +1,33 @@
+{
+  "name": "openspaces",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.9.5",
+    "redux-devtools": "^3.3.2",
+    "redux-logger": "^2.8.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "firebase": "^3.6.10",
+    "immutable": "^3.8.1",
+    "normalize.css": "^5.0.0",
+    "places.js": "^1.4.9",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router-dom": "next",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.2.2",
+    "redux-saga": "^0.14.3",
+    "reselect": "^2.5.4",
+    "styled-components": "^1.4.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
