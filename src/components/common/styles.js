@@ -63,5 +63,5 @@ export const Row = styled.div`
 
 export const SVG = styled.svg`
 	padding-top: ${props => props.addTopPadding ? '30px' : 'none'}
-	height: ${props => props.fitToScreenHeight ? 'calc(100vh - 200px)' : 'auto'}
+	max-height: ${props => props.fitToScreenHeight ? 'calc(100vh - 250px)' : 'auto'}
 `;
