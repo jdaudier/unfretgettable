@@ -56,11 +56,12 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Row = styled.div`
-	height: 100%;
+	height: calc(100vh - 180px);
 	text-align: center;
+	overflow: auto;
 `;
 
 export const SVG = styled.svg`
-	padding-top: ${props => props.addTopPadding ? '40px' : 'none'}
-	height: ${props => props.fitToScreenHeight ? 'calc(100vh - 180px)' : 'auto'}
+	padding-top: ${props => props.addTopPadding ? '30px' : 'none'}
+	height: ${props => props.fitToScreenHeight ? 'calc(100vh - 200px)' : 'auto'}
 `;
