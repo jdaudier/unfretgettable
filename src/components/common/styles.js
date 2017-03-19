@@ -13,8 +13,8 @@ export const Container = styled.div`
 
 export const Bar = styled.div`
 	background-color: #D31027;
-background: -webkit-linear-gradient(to left, #D31027 , #EA384D);
-background: linear-gradient(to left, #D31027 , #EA384D);
+	background: -webkit-linear-gradient(to left, #D31027 , #EA384D);
+	background: linear-gradient(to left, #D31027 , #EA384D);
 	height: 30px;
 `;
 
