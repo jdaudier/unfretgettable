@@ -9,7 +9,7 @@ import Register from './register';
 import Home from './home';
 import Dashboard from '../protected/dashboard';
 import { logout } from '../../helpers/auth';
-import { firebaseAuth } from '../../config/.constants';
+// import { firebaseAuth } from '../../config/.constants';
 
 // Shared Styles
 import { Container, Row } from '../common/styles';
@@ -72,21 +72,21 @@ function PublicRoute ({component: Component, authed, ...rest}) {
 export default class App extends Component {
 	state = {
 		authed: false,
-		loading: true,
+		loading: false, // TODO: Change to true
 	};
 	componentDidMount () {
-		this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
-			if (user) {
-				this.setState({
-					authed: true,
-					loading: false,
-				})
-			} else {
-				this.setState({
-					loading: false
-				})
-			}
-		})
+		// this.removeListener = firebaseAuth().onAuthStateChanged((user) => {
+		// 	if (user) {
+		// 		this.setState({
+		// 			authed: true,
+		// 			loading: false,
+		// 		})
+		// 	} else {
+		// 		this.setState({
+		// 			loading: false
+		// 		})
+		// 	}
+		// })
 	}
 	componentWillUnmount () {
 		this.removeListener()
@@ -128,8 +128,8 @@ export default class App extends Component {
 							<Row>
 								<Switch>
 									<Route path='/' exact component={Home} />
-									<PublicRoute authed={this.state.authed} path='/notes/:noteId' exact component={Question} />
-									<PublicRoute authed={this.state.authed} path='/notes/:noteId/answer' component={Answer} />
+									<Route path='/notes/:noteId' exact component={Question} />
+									<Route path='/notes/:noteId/answer' component={Answer} />
 									<PublicRoute authed={this.state.authed} path='/login' component={Login} />
 									<PublicRoute authed={this.state.authed} path='/register' component={Register} />
 									<PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
