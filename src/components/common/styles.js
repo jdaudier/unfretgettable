@@ -16,8 +16,8 @@ export const Header = styled.h1`
     color: #363637;
 	text-align: center;
 	margin: 0;
-	padding-bottom: 30px;
-	padding-top: 30px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 `;
 
 export const Button = styled.button`
@@ -32,7 +32,7 @@ export const Button = styled.button`
 	cursor: pointer;
 	font-family: inherit;
 	font-size: 1.3rem;
-	height: 66px;
+	height: 50px;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	vertical-align: top;
@@ -43,7 +43,7 @@ export const ButtonWrapper = styled.div`
 	text-align: center;
 	position: fixed;
 	width: 100%;
-	bottom: 50px;
+	bottom: 20px;
 `;
 
 export const Row = styled.div`
@@ -51,5 +51,5 @@ export const Row = styled.div`
 `;
 
 export const SVG = styled.svg`
-	padding-top: ${props => props.addTopPadding ? '50px' : 'none'}
+	padding-top: ${props => props.addTopPadding ? '40px' : 'none'}
 `;
