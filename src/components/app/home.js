@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import getRandomNoteId from '../common/get-random-note';
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, SVG } from '../common/styles';
+import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 
 export default class Home extends Component {
 	state = {
@@ -22,8 +22,10 @@ export default class Home extends Component {
 
 		return (
 			<div>
-				<Bar />
-				<Header>Unfretgettable</Header>
+				<Nav>
+					<Bar />
+					<Header>Unfretgettable</Header>
+				</Nav>
 				<ButtonWrapper>
 					<Link to={{pathname: `/notes/${nextNoteId}`}}
 						  style={{display: 'inline-block', width: '100%'}}>

@@ -11,7 +11,7 @@ import { noteNameMapping } from '../common/notes';
 import getRandomNoteId from '../common/get-random-note';
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, SVG } from '../common/styles';
+import { Bar, Header, Button, ButtonWrapper, SVG, Nav } from '../common/styles';
 
 const Path = styled.path`
     fill: none;
@@ -70,8 +70,10 @@ class Answer extends Component {
 
 		return (
 			<div>
-				<Bar />
-				<Header>{noteNameMapping[noteId]}</Header>
+				<Nav>
+					<Bar />
+					<Header>{noteNameMapping[noteId]}</Header>
+				</Nav>
 				<SVG fitToScreenHeight={true} version="1.1" x="0px" y="0px" viewBox="0 0 217 268">
 					<g id="fret_board">
 						<Rect x="19" y="27.6" width="179.2" height="6.8" />

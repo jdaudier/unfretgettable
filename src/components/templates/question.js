@@ -13,7 +13,7 @@ import LeftArrow from '../icons/left-arrow';
 import getRandomNoteId from '../common/get-random-note';
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, SVG } from '../common/styles';
+import { Bar, Header, Button, ButtonWrapper, SVG, Nav} from '../common/styles';
 
 
 const Line = styled.line`
@@ -67,8 +67,10 @@ class Question extends Component {
 
 		return (
 			<div>
-				<Bar />
-				<Header>Name This Note</Header>
+				<Nav>
+					<Bar />
+					<Header>Name This Note</Header>
+				</Nav>
 				<SVG addTopPadding={true} version="1.1" x="0px" y="0px" viewBox="0 0 350 350">
 					<g id="staff">
 						<g>

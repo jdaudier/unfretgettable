@@ -1,8 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
+export const Nav = styled.div`
+	position: fixed;
+	top: 0;
+	width: 100%;
+`;
+
 export const Container = styled.div`
-	height: 100vh;
 	font-family: 'Roboto', sans-serif;
+	margin-top: 100px;
 `;
 
 export const Bar = styled.div`
