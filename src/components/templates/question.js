@@ -174,7 +174,7 @@ class Question extends Component {
 				<ButtonWrapper>
 					<Button width='50%'
 							borderRadius="0"
-							backgroundColor="#e7e8e8"
+							gradient="light"
 							boxShadowUpwards={true}
 							onClick={() => {
 								this.context.router.history.goBack();
