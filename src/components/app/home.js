@@ -25,8 +25,9 @@ export default class Home extends Component {
 				<Bar />
 				<Header>Unfretgettable</Header>
 				<ButtonWrapper>
-					<Link to={{pathname: `/notes/${nextNoteId}`}}>
-						<Button width='90%'>Start</Button>
+					<Link to={{pathname: `/notes/${nextNoteId}`}}
+						  style={{display: 'inline-block', width: '100%'}}>
+						<Button width='100%' borderRadius="0">Start</Button>
 					</Link>
 				</ButtonWrapper>
 			</div>

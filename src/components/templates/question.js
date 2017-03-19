@@ -172,9 +172,10 @@ class Question extends Component {
 	C205.5,52.9,212.5,60.7,219.3,59.6z"/>
 				</SVG>
 				<ButtonWrapper>
-					<Button width='45%'
-							touchRight={true}
+					<Button width='50%'
+							borderRadius="0"
 							backgroundColor="#e7e8e8"
+							boxShadowUpwards={true}
 							onClick={() => {
 								this.context.router.history.goBack();
 							}}
@@ -182,8 +183,11 @@ class Question extends Component {
 						<LeftArrow fill="#363637" />
 					</Button>
 					<Link to={{pathname: `/notes/${noteId}/answer`}}
-						  style={{display: 'inline-block', width: '45%'}}>
-						<Button touchLeft={true}>Answer</Button>
+						  style={{display: 'inline-block', width: '50%'}}>
+						<Button borderRadius="0"
+								boxShadowUpwards={true}
+						>Answer
+						</Button>
 					</Link>
 				</ButtonWrapper>
 			</div>
