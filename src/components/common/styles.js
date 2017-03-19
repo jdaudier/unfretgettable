@@ -18,6 +18,7 @@ background: linear-gradient(to left, #D31027 , #EA384D);
 	height: 30px;
 `;
 
+// Gradients from https://uigradients.com/#Orca
 export const Header = styled.h1`
 	background: #8e9eab;
 	background: -webkit-linear-gradient(to left, #bdc1c5 , #eef2f3);

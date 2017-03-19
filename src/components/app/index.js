@@ -130,8 +130,8 @@ export default class App extends Component {
 							<Row>
 								<Switch>
 									<Route path='/' exact component={Home} />
-									<Route path='/notes/:noteId' exact component={Question} />
-									<Route path='/notes/:noteId/answer' component={Answer} />
+									<PublicRoute authed={this.state.authed} path='/notes/:noteId' exact component={Question} />
+									<PublicRoute authed={this.state.authed} path='/notes/:noteId/answer' component={Answer} />
 									<PublicRoute authed={this.state.authed} path='/login' component={Login} />
 									<PublicRoute authed={this.state.authed} path='/register' component={Register} />
 									<PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
