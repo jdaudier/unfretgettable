@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
-import todos from './spaces/reducer';
+import { routerReducer } from 'react-router-redux';
+
+import notes from './notes/reducer';
 
 const reducers = combineReducers({
-    todos,
+	notes,
+	router: routerReducer,
 });
 
 export default reducers;

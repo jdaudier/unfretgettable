@@ -17,4 +17,4 @@ yarn-debug.log*
 yarn-error.log*
 
 ## Firebase config
-/src/config/.constants.js
+src/config/.constants.js

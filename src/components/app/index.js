@@ -3,20 +3,21 @@ import { Route, BrowserRouter, Link, Redirect, Switch } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 import Login from './login';
+import Question from '../templates/question';
+import Answer from '../templates/answer';
 import Register from './register';
 import Home from './home';
 import Dashboard from '../protected/dashboard';
 import { logout } from '../../helpers/auth';
 import { firebaseAuth } from '../../config/.constants';
 
+// Shared Styles
+import { Container, Row } from '../common/styles';
+
 const Title = styled.h2`
   font-size: 1.5em;
   text-align: center;
   color: palevioletred;
-`;
-
-const Wrapper = styled.div`
-    text-align: center;
 `;
 
 const spinLogo = keyframes`
@@ -44,6 +45,7 @@ const Heading = styled.div`
 const Intro = styled.p`
     font-size: large;
 `;
+
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
 	return (
@@ -122,17 +124,19 @@ export default class App extends Component {
 								{/*</ul>*/}
 							{/*</div>*/}
 						{/*</nav>*/}
-						<div className="container">
-							<div className="row">
+						<Container>
+							<Row>
 								<Switch>
 									<Route path='/' exact component={Home} />
+									<PublicRoute authed={this.state.authed} path='/notes/:noteId' exact component={Question} />
+									<PublicRoute authed={this.state.authed} path='/notes/:noteId/answer' component={Answer} />
 									<PublicRoute authed={this.state.authed} path='/login' component={Login} />
 									<PublicRoute authed={this.state.authed} path='/register' component={Register} />
 									<PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
 									<Route render={() => <h3>No Match</h3>} />
 								</Switch>
-							</div>
-						</div>
+							</Row>
+						</Container>
 					</div>
 				</BrowserRouter>
 			);

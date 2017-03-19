@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
-import QuestionTemplate from '../templates/question';
+import { Link } from 'react-router-dom';
 
-import notes from '../notes'
+// Helpers
+import getRandomNoteId from '../common/get-random-note';
+
+// Shared Styles
+import { Bar, Header, Button, ButtonWrapper, SVG } from '../common/styles';
 
 export default class Home extends Component {
-  render () {
-    return (
-      <div>
-		  {notes.map((note, i) => <QuestionTemplate key={i} notes={note} />)}
-	  </div>
-    )
-  }
+	state = {
+		nextNoteId: null,
+	};
+
+	componentDidMount() {
+		const nextNoteId = getRandomNoteId();
+		this.setState({nextNoteId});
+	}
+
+	render () {
+		const {nextNoteId} = this.state;
+
+		return (
+			<div>
+				<Bar />
+				<Header>Unfretgettable</Header>
+				<ButtonWrapper>
+					<Link to={{pathname: `/notes/${nextNoteId}`}}>
+						<Button width='90%'>Start</Button>
+					</Link>
+				</ButtonWrapper>
+			</div>
+		)
+	}
 }
