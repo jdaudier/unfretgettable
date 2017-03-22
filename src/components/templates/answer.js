@@ -74,7 +74,7 @@ class Answer extends Component {
 					<Bar />
 					<Header>{noteNameMapping[noteId]}</Header>
 				</Nav>
-				<SVG fitToScreenHeight={true} version="1.1" x="0px" y="0px" viewBox="0 0 217 268">
+				<SVG version="1.1" x="0px" y="0px" viewBox="0 0 217 268">
 					<g id="fret_board">
 						<Rect x="19" y="27.6" width="179.2" height="6.8" />
 						<Path d="M196.8,201.4V257V201.4z M196.8,145.7v55.6 M196.8,90.1v55.6 M196.8,34.4v55.6 M161.5,257h35.3 M161.5,201.4
