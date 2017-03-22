@@ -148,6 +148,7 @@ class Answer extends Component {
 					<Button width='50%'
 							borderRadius="0"
 							gradient="light"
+							boxShadowUpwards={true}
 							onClick={() => {
 								this.context.router.history.goBack();
 							}}
