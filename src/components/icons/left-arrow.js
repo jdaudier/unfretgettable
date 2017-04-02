@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const SVG = styled.svg`
 	fill: ${props => props.fill ? props.fill : '#FFF'};
@@ -15,3 +15,7 @@ export default function LeftArrow({fill}) {
 		</SVG>
 	)
 }
+
+LeftArrow.propTypes = {
+	fill: PropTypes.string,
+};

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,9 +8,6 @@ import { bindActionCreators } from 'redux';
 import { replaceActiveNotes} from '../../state/notes/actions';
 
 import LeftArrow from '../icons/left-arrow';
-
-// Helpers
-import getRandomNoteId from '../common/get-random-note';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, SVG, Nav} from '../common/styles';
@@ -37,30 +34,6 @@ const NotePath = styled.path`
 `;
 
 class Question extends Component {
-	// state = {
-	// 	nextNoteId: null,
-	// };
-    //
-	// componentDidMount() {
-	// 	this.getNextNoteId();
-	// }
-    //
-	// componentWillReceiveProps(nextProps) {
-	// 	this.getNextNoteId();
-	// }
-    //
-	// getNextNoteId() {
-	// 	const {noteId} = this.props;
-    //
-	// 	let nextNoteId = getRandomNoteId();
-    //
-	// 	// 'Cuz we don't want to stay on the same card after clicking
-	// 	if (noteId === nextNoteId) {
-	// 		return this.getNextNoteId();
-	// 	}
-	// 	this.setState({nextNoteId});
-	// }
-
 	render () {
 		// const {nextNoteId} = this.state;
 		const {noteId} = this.props;
