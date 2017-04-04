@@ -63,6 +63,5 @@ export const Row = styled.div`
 `;
 
 export const SVG = styled.svg`
-	padding-top: ${props => props.addTopPadding ? '30px' : 'none'}l
-	max-height: calc(100vh - 250px);
+	max-height: calc(100vh - 200px);
 `;
