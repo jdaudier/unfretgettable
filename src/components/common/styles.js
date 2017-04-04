@@ -63,5 +63,5 @@ export const Row = styled.div`
 `;
 
 export const SVG = styled.svg`
-	max-height: calc(100vh - 200px);
+	max-height: calc(100vh - 250px);
 `;
