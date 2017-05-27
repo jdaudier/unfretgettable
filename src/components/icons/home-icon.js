@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const SVG = styled.svg`
-	height: 24px
+	height: 24px;
 	position: absolute;
 	right: 10px;
 	top: 3px;
