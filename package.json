@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"devDependencies": {
-		"react-scripts": "0.9.5",
+		"prop-types": "^15.5.10",
+		"react-scripts": "^1.0.10",
 		"redux-devtools": "^3.3.2",
 		"redux-logger": "^2.8.1"
 	},
@@ -22,7 +23,7 @@
 		"redux-actions": "^1.2.2",
 		"redux-saga": "^0.14.3",
 		"reselect": "^2.5.4",
-		"styled-components": "^2.0.0"
+		"styled-components": "^2.1.1"
 	},
 	"scripts": {
 		"start": "react-scripts start",
