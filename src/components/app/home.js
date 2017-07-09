@@ -1,38 +1,112 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import Question from '../templates/question';
+import Answer from '../templates/answer';
 
 // Helpers
-import getRandomNoteId from '../common/get-random-note';
+import getShuffledNotes from '../common/shuffle-notes';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 
-export default class Home extends Component {
+class Home extends Component {
 	state = {
-		nextNoteId: null,
+		showHome: this.props.atRootPath,
+		currentIndex: -1,
+		notes: getShuffledNotes(),
+		showQuestion: false,
 	};
 
-	componentDidMount() {
-		const nextNoteId = getRandomNoteId();
-		this.setState({nextNoteId});
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.atRootPath) {
+			this.setState({
+				showHome: true,
+				currentIndex: -1,
+				notes: getShuffledNotes(),
+			});
+		}
+	}
+
+	renderNextQuestion() {
+		this.setState(prevState => {
+			return {
+				showHome: false,
+				showQuestion: true,
+				currentIndex: prevState.currentIndex + 1,
+			}
+		});
+	}
+
+	renderQuestion() {
+		this.setState({
+			showQuestion: true,
+		});
+	}
+
+	renderAnswer() {
+		this.setState({showQuestion: false});
+	}
+
+	renderPrevAnswer() {
+		this.setState(prevState => {
+			const currentIndex = prevState.currentIndex - 1;
+
+			return {
+				showQuestion: false,
+				currentIndex,
+				showHome: currentIndex === -1,
+			}
+		});
 	}
 
 	render () {
-		const {nextNoteId} = this.state;
+		const {showHome, currentIndex, notes, showQuestion} = this.state;
+
+		if (showHome) {
+			return (
+				<div>
+					<Nav>
+						<Bar />
+						<Header>Unfretgettable</Header>
+					</Nav>
+					<ButtonWrapper>
+						<Button width='100%' borderRadius="0" onClick={() => this.renderNextQuestion()}>
+							Start
+						</Button>
+					</ButtonWrapper>
+				</div>
+			)
+		}
+
+		if (showQuestion) {
+			return (
+				<Question noteId={notes[currentIndex]}
+						  renderAnswer={() => this.renderAnswer()}
+						  renderPrevAnswer={() => this.renderPrevAnswer()}
+				/>
+			)
+		}
 
 		return (
-			<div>
-				<Nav>
-					<Bar />
-					<Header>Unfretgettable</Header>
-				</Nav>
-				<ButtonWrapper>
-					<Link to={{pathname: `/notes/${nextNoteId}`}}
-						  style={{display: 'inline-block', width: '100%'}}>
-						<Button width='100%' borderRadius="0">Start</Button>
-					</Link>
-				</ButtonWrapper>
-			</div>
+			<Answer noteId={notes[currentIndex]}
+					renderNextQuestion={() => this.renderNextQuestion()}
+					renderQuestion={() => this.renderQuestion()}
+					isLastNote={currentIndex === notes.length - 1}
+			/>
 		)
 	}
 }
+
+Question.propTypes = {
+	atRootPath: PropTypes.bool,
+};
+
+function mapStateToProps(state, {match: {path}}) {
+	return {
+		atRootPath: path === '/',
+	}
+}
+
+export default connect(mapStateToProps)(Home)

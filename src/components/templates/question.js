@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -44,7 +43,7 @@ const NotePath = styled.path`
 
 class Question extends Component {
 	render () {
-		const {noteId} = this.props;
+		const {noteId, renderAnswer, renderPrevAnswer} = this.props;
 
 		return (
 			<div>
@@ -234,19 +233,16 @@ class Question extends Component {
 							borderRadius="0"
 							gradient="light"
 							boxShadowUpwards={true}
-							onClick={() => {
-								this.context.router.history.goBack();
-							}}
+							onClick={() => renderPrevAnswer()}
 					>
 						<LeftArrow fill="#363637" />
 					</Button>
-					<Link to={{pathname: `/notes/${noteId}/answer`}}
-						  style={{display: 'inline-block', width: '50%'}}>
-						<Button borderRadius="0"
-								boxShadowUpwards={true}
-						>Answer
-						</Button>
-					</Link>
+					<Button borderRadius="0"
+							boxShadowUpwards={true}
+							width="50%"
+							onClick={() => renderAnswer()}
+					>Answer
+					</Button>
 				</ButtonWrapper>
 			</div>
 		)
@@ -257,11 +253,13 @@ Question.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
+Question.propTypes = {
+	renderAnswer: PropTypes.func.isRequired,
+	renderPrevAnswer: PropTypes.func.isRequired,
+};
 
-function mapStateToProps(state, {match: {params: {noteId}}}) {
-	return {
-		noteId: noteId,
-	}
+function mapStateToProps(state) {
+	return {}
 }
 
 function mapDispatchToProps(dispatch) {

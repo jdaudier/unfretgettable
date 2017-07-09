@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
-import Question from '../templates/question';
-import Answer from '../templates/answer';
 import Home from './home';
 
 // Shared Styles
@@ -19,8 +17,6 @@ export default class App extends Component {
 						<Row>
 							<Switch>
 								<Route path='/' exact component={Home} />
-								<Route path='/notes/:noteId' exact component={Question} />
-								<Route path='/notes/:noteId/answer' component={Answer} />
 								<Route render={() => <h3>No Match</h3>} />
 							</Switch>
 						</Row>

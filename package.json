@@ -12,6 +12,7 @@
 		"babel-polyfill": "^6.23.0",
 		"firebase": "^3.6.10",
 		"immutable": "^3.8.1",
+		"lodash": "^4.17.4",
 		"normalize.css": "^5.0.0",
 		"places.js": "^1.4.9",
 		"react": "^15.4.2",

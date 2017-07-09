@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -9,7 +8,6 @@ import RightArrow from '../icons/right-arrow';
 
 // Helpers
 import { noteNameMapping } from '../common/notes';
-import getRandomNoteId from '../common/get-random-note';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, SVG, Nav } from '../common/styles';
@@ -46,28 +44,8 @@ const Rect = styled.rect`
 `;
 
 class Answer extends Component {
-	state = {
-		nextNoteId: null,
-	};
-
-	componentDidMount() {
-		this.getNextNoteId();
-	}
-
-	getNextNoteId() {
-		const {noteId} = this.props;
-		const nextNoteId = getRandomNoteId();
-
-		// 'Cuz we don't want to stay on the same card after clicking
-		if (noteId === nextNoteId) {
-			return this.getNextNoteId();
-		}
-		this.setState({nextNoteId});
-	}
-
 	render() {
-		const {nextNoteId} = this.state;
-		const {noteId} = this.props;
+		const {noteId, isLastNote, renderNextQuestion, renderQuestion} = this.props;
 
 		return (
 			<div>
@@ -202,20 +180,29 @@ class Answer extends Component {
 							borderRadius="0"
 							gradient="light"
 							boxShadowUpwards={true}
-							onClick={() => {
-								this.context.router.history.goBack();
-							}}
+							onClick={() => renderQuestion()}
 					>
 						<LeftArrow fill="#363637" />
 					</Button>
-					<Link to={{pathname: `/notes/${nextNoteId}`}}
-						  style={{display: 'inline-block', width: '50%'}}>
+					{!isLastNote && (
 						<Button borderRadius="0"
 								boxShadowUpwards={true}
+								width="50%"
+								onClick={() => renderNextQuestion()}
 						>
 							<RightArrow />
 						</Button>
-					</Link>
+					)}
+					{isLastNote && (
+						<Button borderRadius="0"
+								boxShadowUpwards={true}
+								width="50%"
+								onClick={() => this.context.router.history.push('/')}
+						>
+							Start Over
+						</Button>
+					)}
+
 				</ButtonWrapper>
 			</div>
 		)
@@ -226,10 +213,14 @@ Answer.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-function mapStateToProps(state, {match: {params: {noteId}}}) {
-	return {
-		noteId: noteId,
-	}
+Answer.propTypes = {
+	renderQuestion: PropTypes.func.isRequired,
+	renderNextQuestion: PropTypes.func.isRequired,
+	isLastNote: PropTypes.bool.isRequired,
+};
+
+function mapStateToProps(state) {
+	return {}
 }
 
 function mapDispatchToProps(dispatch) {
