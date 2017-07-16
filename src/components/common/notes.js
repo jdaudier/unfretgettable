@@ -19,7 +19,7 @@ export const noteNameMapping = {
 	e6s: 'E',
 	f6s1f: 'F',
 	g6s3f: 'G',
-	'f6s2f': 'F#',
-	'f4s4f': 'F#',
-	'f1s2f': 'F#',
+	f6s2f: 'F#',
+	f4s4f: 'F#',
+	f1s2f: 'F#',
 };
