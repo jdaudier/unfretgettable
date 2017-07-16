@@ -6,7 +6,7 @@ import Question from '../templates/question';
 import Answer from '../templates/answer';
 
 // Helpers
-import getShuffledNotes from '../common/shuffle-notes';
+import {getShuffledNotes} from '../common/shuffle';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
@@ -14,6 +14,7 @@ import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 class Home extends Component {
 	state = {
 		showHome: this.props.atRootPath,
+		showNotes: false,
 		currentIndex: -1,
 		notes: getShuffledNotes(),
 		showQuestion: false,
@@ -72,8 +73,8 @@ class Home extends Component {
 						<Header>Unfretgettable</Header>
 					</Nav>
 					<ButtonWrapper>
-						<Button width='100%' borderRadius="0" onClick={() => this.renderNextQuestion()}>
-							Start
+						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion()}>
+							Notes
 						</Button>
 					</ButtonWrapper>
 				</div>
@@ -82,7 +83,7 @@ class Home extends Component {
 
 		if (showQuestion) {
 			return (
-				<Question noteId={notes[currentIndex]}
+				<Question noteIds={notes[currentIndex]}
 						  renderAnswer={() => this.renderAnswer()}
 						  renderPrevAnswer={() => this.renderPrevAnswer()}
 				/>
@@ -90,7 +91,7 @@ class Home extends Component {
 		}
 
 		return (
-			<Answer noteId={notes[currentIndex]}
+			<Answer noteIds={notes[currentIndex]}
 					renderNextQuestion={() => this.renderNextQuestion()}
 					renderQuestion={() => this.renderQuestion()}
 					isLastNote={currentIndex === notes.length - 1}

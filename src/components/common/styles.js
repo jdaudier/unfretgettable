@@ -38,10 +38,11 @@ export const Button = styled.button`
 	border: none;
 	border-radius: ${props => props.borderRadius ? props.borderRadius : '4px'};
 	box-shadow: ${props => props.boxShadowUpwards ? '0 -3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 -3px 1px -1px rgba(0,0,0,0.2)' : '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)'};
-	color: #FFF;
+	color: ${props => props.gradient === 'light' ? '#363637' : '#FFF'};
 	cursor: pointer;
 	font-family: inherit;
 	font-size: 1.3rem;
+	font-weight: ${props => props.gradient === 'light' ? 600 : 'normal'};
 	height: 60px;
 	letter-spacing: 2px;
 	text-transform: uppercase;

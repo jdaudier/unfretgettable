@@ -1,6 +1,6 @@
 import {notes} from './notes';
 import {shuffle} from 'lodash/collection';
 
-export default function getShuffledNotes() {
+export function getShuffledNotes() {
 	return shuffle(notes);
 }

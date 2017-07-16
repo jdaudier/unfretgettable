@@ -15,7 +15,7 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 
 class Question extends Component {
 	render () {
-		const {noteId, renderAnswer, renderPrevAnswer} = this.props;
+		const {noteIds, renderAnswer, renderPrevAnswer} = this.props;
 
 		return (
 			<div>
@@ -23,7 +23,7 @@ class Question extends Component {
 					<Bar />
 					<Header>Name This Note</Header>
 				</Nav>
-				<StandardNotation noteId={noteId} />
+				<StandardNotation noteIds={noteIds} />
 				<ButtonWrapper>
 					<Button width='50%'
 							borderRadius="0"
@@ -52,6 +52,7 @@ Question.contextTypes = {
 Question.propTypes = {
 	renderAnswer: PropTypes.func.isRequired,
 	renderPrevAnswer: PropTypes.func.isRequired,
+	noteIds: PropTypes.arrayOf(PropTypes.string),
 };
 
 function mapStateToProps(state) {
