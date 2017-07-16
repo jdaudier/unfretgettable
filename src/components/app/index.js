@@ -5,7 +5,7 @@ import Home from './home';
 
 // Shared Styles
 import { Container, Row } from '../common/styles';
-import HomeIcon from '../icons/home-icon';
+import HomeIcon from '../svgs/home-icon';
 
 export default class App extends Component {
 	render() {
