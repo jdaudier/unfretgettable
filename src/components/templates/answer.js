@@ -15,13 +15,13 @@ import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 
 class Answer extends Component {
 	render() {
-		const {noteIds, isLastNote, renderNextQuestion, renderQuestion} = this.props;
+		const {noteIds, chord, isLastNote, renderNextQuestion, renderQuestion} = this.props;
 
 		return (
 			<div>
 				<Nav>
 					<Bar />
-					<Header>{noteNameMapping[noteIds][0]}</Header>
+					<Header>{noteIds.length === 1 ? noteNameMapping[noteIds][0] : chord}</Header>
 				</Nav>
 				<ChordDiagram noteIds={noteIds} />
 				<ButtonWrapper>
@@ -67,6 +67,7 @@ Answer.propTypes = {
 	renderNextQuestion: PropTypes.func.isRequired,
 	isLastNote: PropTypes.bool.isRequired,
 	noteIds: PropTypes.arrayOf(PropTypes.string),
+	chord: PropTypes.string,
 };
 
 function mapStateToProps(state) {

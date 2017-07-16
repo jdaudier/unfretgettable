@@ -21,7 +21,7 @@ class Question extends Component {
 			<div>
 				<Nav>
 					<Bar />
-					<Header>Name This Note</Header>
+					<Header>Name This&nbsp;{noteIds.length === 1 ? 'Note' : 'Chord'}</Header>
 				</Nav>
 				<StandardNotation noteIds={noteIds} />
 				<ButtonWrapper>

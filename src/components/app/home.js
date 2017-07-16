@@ -6,7 +6,7 @@ import Question from '../templates/question';
 import Answer from '../templates/answer';
 
 // Helpers
-import {getShuffledNotes} from '../common/shuffle';
+import {getShuffledNotes, getShuffledChords, getShuffledChordNotes} from '../common/shuffle';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
@@ -17,6 +17,7 @@ class Home extends Component {
 		showNotes: false,
 		currentIndex: -1,
 		notes: getShuffledNotes(),
+		chords: getShuffledChords(),
 		showQuestion: false,
 	};
 
@@ -26,14 +27,16 @@ class Home extends Component {
 				showHome: true,
 				currentIndex: -1,
 				notes: getShuffledNotes(),
+				chords: getShuffledChords(),
 			});
 		}
 	}
 
-	renderNextQuestion() {
+	renderNextQuestion({showNotes}) {
 		this.setState(prevState => {
 			return {
 				showHome: false,
+				showNotes,
 				showQuestion: true,
 				currentIndex: prevState.currentIndex + 1,
 			}
@@ -63,7 +66,7 @@ class Home extends Component {
 	}
 
 	render () {
-		const {showHome, currentIndex, notes, showQuestion} = this.state;
+		const {showHome, currentIndex, notes, chords, showQuestion, showNotes} = this.state;
 
 		if (showHome) {
 			return (
@@ -73,17 +76,23 @@ class Home extends Component {
 						<Header>Unfretgettable</Header>
 					</Nav>
 					<ButtonWrapper>
-						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion()}>
+						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: true})}>
 							Notes
+						</Button>
+						<Button width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: false})}>
+							Chords
 						</Button>
 					</ButtonWrapper>
 				</div>
 			)
 		}
 
+		const type = showNotes ? notes : chords;
+		const noteIds = showNotes ? notes[currentIndex] : getShuffledChordNotes(chords)[currentIndex];
+
 		if (showQuestion) {
 			return (
-				<Question noteIds={notes[currentIndex]}
+				<Question noteIds={noteIds}
 						  renderAnswer={() => this.renderAnswer()}
 						  renderPrevAnswer={() => this.renderPrevAnswer()}
 				/>
@@ -91,10 +100,11 @@ class Home extends Component {
 		}
 
 		return (
-			<Answer noteIds={notes[currentIndex]}
-					renderNextQuestion={() => this.renderNextQuestion()}
+			<Answer noteIds={noteIds}
+					chord={chords[currentIndex]}
+					renderNextQuestion={() => this.renderNextQuestion({showNotes})}
 					renderQuestion={() => this.renderQuestion()}
-					isLastNote={currentIndex === notes.length - 1}
+					isLastNote={currentIndex === type.length - 1}
 			/>
 		)
 	}
