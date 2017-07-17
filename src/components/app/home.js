@@ -6,7 +6,7 @@ import Question from '../templates/question';
 import Answer from '../templates/answer';
 
 // Helpers
-import {getShuffledNotes, getShuffledChords, getShuffledChordNotes} from '../common/shuffle';
+import {getShuffledNotes, getShuffledChords, getShuffledChordNotes, getShuffledStandardNotationChordNotes} from '../common/shuffle';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
@@ -88,7 +88,8 @@ class Home extends Component {
 		}
 
 		const type = showNotes ? notes : chords;
-		const noteIds = showNotes ? notes[currentIndex] : getShuffledChordNotes(chords)[currentIndex];
+		const noteIds = showNotes ? notes[currentIndex] :
+			showQuestion ? getShuffledStandardNotationChordNotes(chords)[currentIndex] : getShuffledChordNotes(chords)[currentIndex];
 
 		if (showQuestion) {
 			return (
