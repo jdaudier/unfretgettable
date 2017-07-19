@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -19,10 +20,12 @@ class Question extends Component {
 
 		return (
 			<div>
-				<Nav>
-					<Bar />
-					<Header>{chord ? chord.name : 'Name This Note'}</Header>
-				</Nav>
+				<Link to={{pathname: '/'}}>
+					<Nav>
+						<Bar />
+						<Header>{chord ? chord.name : 'Name This Note'}</Header>
+					</Nav>
+				</Link>
 				<StandardNotation noteIds={noteIds} />
 				<ButtonWrapper>
 					<Button width='50%'
