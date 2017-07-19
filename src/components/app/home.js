@@ -6,7 +6,7 @@ import Question from '../templates/question';
 import Answer from '../templates/answer';
 
 // Helpers
-import {getShuffledNotes, getShuffledChords, getShuffledChordNotes, getShuffledStandardNotationChordNotes} from '../common/shuffle';
+import {getShuffledNotes, getShuffledChords} from '../common/shuffle';
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
@@ -87,14 +87,13 @@ class Home extends Component {
 			)
 		}
 
-		const type = showNotes ? notes : chords;
-		const noteIds = showNotes ? notes[currentIndex] :
-			showQuestion ? getShuffledStandardNotationChordNotes(chords)[currentIndex] : getShuffledChordNotes(chords)[currentIndex];
+		const data = showNotes ? notes : chords;
 
 		if (showQuestion) {
 			return (
-				<Question noteIds={noteIds}
-						  chord={showNotes ? null : chords[currentIndex]}
+				<Question data={data}
+						  showNotes={showNotes}
+						  currentIndex={currentIndex}
 						  renderAnswer={() => this.renderAnswer()}
 						  renderPrevAnswer={() => this.renderPrevAnswer()}
 				/>
@@ -102,11 +101,12 @@ class Home extends Component {
 		}
 
 		return (
-			<Answer noteIds={noteIds}
-					chord={showNotes ? null : chords[currentIndex]}
+			<Answer data={data}
+					showNotes={showNotes}
+					currentIndex={currentIndex}
 					renderNextQuestion={() => this.renderNextQuestion({showNotes})}
 					renderQuestion={() => this.renderQuestion()}
-					isLastNote={currentIndex === type.length - 1}
+					isLastNote={currentIndex === data.length - 1}
 			/>
 		)
 	}

@@ -9,21 +9,35 @@ import RightArrow from '../svgs/right-arrow';
 
 // Helpers
 import { noteNameMapping } from '../common/notes';
+import {getShuffledChordNotes} from '../common/shuffle';
+
 
 // Shared Styles
 import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 
 
 class Answer extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			patternNum: 1,
+		};
+	}
+
+
 	render() {
-		const {noteIds, chord, isLastNote, renderNextQuestion, renderQuestion} = this.props;
+		const {patternNum} = this.state;
+		const {showNotes, data, currentIndex, isLastNote, renderNextQuestion, renderQuestion} = this.props;
+
+		const chord = showNotes ? null : data[currentIndex];
+		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
 
 		return (
 			<div>
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{chord ? chord.name : noteNameMapping[noteIds][0]}</Header>
+						<Header>{showNotes ? noteNameMapping[noteIds][0] : chord.name}</Header>
 					</Nav>
 				</Link>
 				<ChordDiagram noteIds={noteIds} />
@@ -69,8 +83,6 @@ Answer.propTypes = {
 	renderQuestion: PropTypes.func.isRequired,
 	renderNextQuestion: PropTypes.func.isRequired,
 	isLastNote: PropTypes.bool.isRequired,
-	noteIds: PropTypes.arrayOf(PropTypes.string),
-	chord: PropTypes.object,
 };
 
 function mapStateToProps(state) {

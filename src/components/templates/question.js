@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Helpers
+import {getShuffledStandardNotationChordNotes} from '../common/shuffle';
+
 // Action Creators
 import { replaceActiveNotes} from '../../state/notes/actions';
 
@@ -16,14 +19,17 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 
 class Question extends Component {
 	render () {
-		const {noteIds, chord, renderAnswer, renderPrevAnswer} = this.props;
+		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
+
+		const chord = showNotes ? null : data[currentIndex];
+		const noteIds = showNotes ? data[currentIndex] : getShuffledStandardNotationChordNotes(data)[currentIndex];
 
 		return (
 			<div>
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{chord ? chord.name : 'Name This Note'}</Header>
+						<Header>{showNotes ? 'Name This Note' : chord.name}</Header>
 					</Nav>
 				</Link>
 				<StandardNotation noteIds={noteIds} />
@@ -55,8 +61,6 @@ Question.contextTypes = {
 Question.propTypes = {
 	renderAnswer: PropTypes.func.isRequired,
 	renderPrevAnswer: PropTypes.func.isRequired,
-	noteIds: PropTypes.arrayOf(PropTypes.string),
-	chord: PropTypes.object,
 };
 
 function mapStateToProps(state) {
