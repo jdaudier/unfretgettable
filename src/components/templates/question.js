@@ -15,13 +15,13 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 
 class Question extends Component {
 	render () {
-		const {noteIds, renderAnswer, renderPrevAnswer} = this.props;
+		const {noteIds, chord, renderAnswer, renderPrevAnswer} = this.props;
 
 		return (
 			<div>
 				<Nav>
 					<Bar />
-					<Header>Name This&nbsp;{noteIds.length === 1 ? 'Note' : 'Chord'}</Header>
+					<Header>{chord ? chord.name : 'Name This Note'}</Header>
 				</Nav>
 				<StandardNotation noteIds={noteIds} />
 				<ButtonWrapper>
@@ -53,6 +53,7 @@ Question.propTypes = {
 	renderAnswer: PropTypes.func.isRequired,
 	renderPrevAnswer: PropTypes.func.isRequired,
 	noteIds: PropTypes.arrayOf(PropTypes.string),
+	chord: PropTypes.object,
 };
 
 function mapStateToProps(state) {

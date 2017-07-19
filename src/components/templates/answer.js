@@ -21,7 +21,7 @@ class Answer extends Component {
 			<div>
 				<Nav>
 					<Bar />
-					<Header>{noteIds.length === 1 ? noteNameMapping[noteIds][0] : chord}</Header>
+					<Header>{chord ? chord.name : noteNameMapping[noteIds][0]}</Header>
 				</Nav>
 				<ChordDiagram noteIds={noteIds} />
 				<ButtonWrapper>
@@ -67,7 +67,7 @@ Answer.propTypes = {
 	renderNextQuestion: PropTypes.func.isRequired,
 	isLastNote: PropTypes.bool.isRequired,
 	noteIds: PropTypes.arrayOf(PropTypes.string),
-	chord: PropTypes.string,
+	chord: PropTypes.object,
 };
 
 function mapStateToProps(state) {

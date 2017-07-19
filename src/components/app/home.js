@@ -94,6 +94,7 @@ class Home extends Component {
 		if (showQuestion) {
 			return (
 				<Question noteIds={noteIds}
+						  chord={showNotes ? null : chords[currentIndex]}
 						  renderAnswer={() => this.renderAnswer()}
 						  renderPrevAnswer={() => this.renderPrevAnswer()}
 				/>
@@ -102,7 +103,7 @@ class Home extends Component {
 
 		return (
 			<Answer noteIds={noteIds}
-					chord={chords[currentIndex]}
+					chord={showNotes ? null : chords[currentIndex]}
 					renderNextQuestion={() => this.renderNextQuestion({showNotes})}
 					renderQuestion={() => this.renderQuestion()}
 					isLastNote={currentIndex === type.length - 1}
