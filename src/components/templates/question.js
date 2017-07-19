@@ -21,13 +21,14 @@ class Question extends Component {
 	render () {
 		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
 		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data)[currentIndex];
+		const chord = showNotes ? {} : data[currentIndex];
 
 		return (
 			<div>
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>Name This&nbsp;{showNotes ? 'Note' : 'Chord'}</Header>
+						<Header>{showNotes ? 'Name This Note' : chord}</Header>
 					</Nav>
 				</Link>
 				<StandardNotation noteIds={noteIds} />
