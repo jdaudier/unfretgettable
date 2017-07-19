@@ -1,7 +1,7 @@
 import {shuffle} from 'lodash/collection';
 
 import {notes} from './notes';
-import {chords, chordToNotesMapping, standardNotationChordToNotesMapping} from './chords';
+import {chords, chordToNotesMapping} from './chords';
 
 export function getShuffledNotes() {
 	return shuffle(notes);
@@ -11,10 +11,6 @@ export function getShuffledChords() {
 	return shuffle(chords);
 }
 
-export function getShuffledChordNotes(chords, patternNum) {
+export function getShuffledChordNotes(chords, patternNum = 1) {
 	return chords.map(chord => chordToNotesMapping[chord][patternNum]);
-}
-
-export function getShuffledStandardNotationChordNotes(chords) {
-	return chords.map(chord => standardNotationChordToNotesMapping[chord]);
 }

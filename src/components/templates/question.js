@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Helpers
-import {getShuffledStandardNotationChordNotes} from '../common/shuffle';
+import {getShuffledChordNotes} from '../common/shuffle';
 
 // Action Creators
 import { replaceActiveNotes } from '../../state/notes/actions';
@@ -20,7 +20,7 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 class Question extends Component {
 	render () {
 		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
-		const noteIds = showNotes ? data[currentIndex] : getShuffledStandardNotationChordNotes(data)[currentIndex];
+		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data)[currentIndex];
 
 		return (
 			<div>
