@@ -20,8 +20,6 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 class Question extends Component {
 	render () {
 		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
-
-		const chord = showNotes ? {} : data[currentIndex];
 		const noteIds = showNotes ? data[currentIndex] : getShuffledStandardNotationChordNotes(data)[currentIndex];
 
 		return (
@@ -29,7 +27,7 @@ class Question extends Component {
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{showNotes ? 'Name This Note' : chord}</Header>
+						<Header>Name This&nbsp;{showNotes ? 'Note' : 'Chord'}</Header>
 					</Nav>
 				</Link>
 				<StandardNotation noteIds={noteIds} />
