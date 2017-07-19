@@ -1,26 +1,4 @@
-export const chords = [{
-		name: 'C',
-		patternCount: 1,
-	}, {
-		name: 'G7',
-		patternCount: 1,
-	}, {
-		name: 'G',
-		patternCount: 2,
-	},  {
-		name: 'D7',
-		patternCount: 1,
-	}, {
-		name: 'Em',
-		patternCount: 1,
-	}, {
-		name: 'D',
-		patternCount: 1,
-	}, {
-		name: 'A7',
-		patternCount: 2,
-	},
-];
+export const chords = ['C', 'G7', 'G', 'D7', 'Em', 'D', 'A7'];
 
 export const chordToNotesMapping = {
 	C: {

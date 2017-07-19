@@ -9,7 +9,8 @@ import RightArrow from '../svgs/right-arrow';
 
 // Helpers
 import { noteNameMapping } from '../common/notes';
-import {getShuffledChordNotes} from '../common/shuffle';
+import { getShuffledChordNotes } from '../common/shuffle';
+import { chordToNotesMapping } from '../common/chords';
 
 
 // Shared Styles
@@ -19,17 +20,42 @@ import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 class Answer extends Component {
 	constructor(props) {
 		super(props);
+
+		const {goingBackwards, showNotes, data, currentIndex} = this.props;
+
+		const chord = showNotes ? {} : data[currentIndex];
+		const patternCount = showNotes ? 1 : Object.keys(chordToNotesMapping[chord]).length;
+
 		this.state = {
-			patternNum: 1,
+			patternNum: goingBackwards ? patternCount : 1,
 		};
 	}
 
+	renderNextPattern() {
+		this.setState(prevState => {
+			return {
+				patternNum: prevState.patternNum + 1,
+			}
+		})
+	}
+
+	renderPrevPattern() {
+		this.setState(prevState => {
+			return {
+				patternNum: prevState.patternNum - 1,
+			}
+		})
+	}
 
 	render() {
 		const {patternNum} = this.state;
 		const {showNotes, data, currentIndex, isLastNote, renderNextQuestion, renderQuestion} = this.props;
 
-		const chord = showNotes ? null : data[currentIndex];
+		const chord = showNotes ? {} : data[currentIndex];
+		const isFirstPattern = showNotes || patternNum === 1;
+		const patternCount = showNotes ? 1 : Object.keys(chordToNotesMapping[chord]).length;
+		const isLastPattern = showNotes || patternNum === patternCount;
+
 		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
 
 		return (
@@ -37,7 +63,7 @@ class Answer extends Component {
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{showNotes ? noteNameMapping[noteIds][0] : chord.name}</Header>
+						<Header>{showNotes ? noteNameMapping[noteIds][0] : chord}</Header>
 					</Nav>
 				</Link>
 				<ChordDiagram noteIds={noteIds} />
@@ -46,7 +72,13 @@ class Answer extends Component {
 							borderRadius="0"
 							gradient="light"
 							boxShadowUpwards={true}
-							onClick={() => renderQuestion()}
+							onClick={() => {
+								if (isFirstPattern) {
+									return renderQuestion();
+								}
+
+								this.renderPrevPattern();
+							}}
 					>
 						<LeftArrow fill="#363637" />
 					</Button>
@@ -54,7 +86,13 @@ class Answer extends Component {
 						<Button borderRadius="0"
 								boxShadowUpwards={true}
 								width="50%"
-								onClick={() => renderNextQuestion()}
+								onClick={() => {
+									if (isLastPattern) {
+										return renderNextQuestion();
+									}
+
+									this.renderNextPattern();
+								}}
 						>
 							<RightArrow />
 						</Button>
@@ -68,7 +106,6 @@ class Answer extends Component {
 							Start Over
 						</Button>
 					)}
-
 				</ButtonWrapper>
 			</div>
 		)
@@ -80,6 +117,7 @@ Answer.contextTypes = {
 };
 
 Answer.propTypes = {
+	goingBackwards: PropTypes.bool.isRequired,
 	renderQuestion: PropTypes.func.isRequired,
 	renderNextQuestion: PropTypes.func.isRequired,
 	isLastNote: PropTypes.bool.isRequired,

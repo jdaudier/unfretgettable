@@ -19,6 +19,7 @@ class Home extends Component {
 		notes: getShuffledNotes(),
 		chords: getShuffledChords(),
 		showQuestion: false,
+		goingBackwards: true,
 	};
 
 	componentWillReceiveProps(nextProps) {
@@ -50,7 +51,10 @@ class Home extends Component {
 	}
 
 	renderAnswer() {
-		this.setState({showQuestion: false});
+		this.setState({
+			showQuestion: false,
+			goingBackwards: false,
+		});
 	}
 
 	renderPrevAnswer() {
@@ -59,6 +63,7 @@ class Home extends Component {
 
 			return {
 				showQuestion: false,
+				goingBackwards: true,
 				currentIndex,
 				showHome: currentIndex === -1,
 			}
@@ -66,7 +71,7 @@ class Home extends Component {
 	}
 
 	render () {
-		const {showHome, currentIndex, notes, chords, showQuestion, showNotes} = this.state;
+		const {showHome, currentIndex, notes, chords, showQuestion, showNotes, goingBackwards} = this.state;
 
 		if (showHome) {
 			return (
@@ -103,6 +108,7 @@ class Home extends Component {
 		return (
 			<Answer data={data}
 					showNotes={showNotes}
+					goingBackwards={goingBackwards}
 					currentIndex={currentIndex}
 					renderNextQuestion={() => this.renderNextQuestion({showNotes})}
 					renderQuestion={() => this.renderQuestion()}

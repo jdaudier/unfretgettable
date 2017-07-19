@@ -12,9 +12,9 @@ export function getShuffledChords() {
 }
 
 export function getShuffledChordNotes(chords, patternNum) {
-	return chords.map(chord => chordToNotesMapping[chord.name][patternNum]);
+	return chords.map(chord => chordToNotesMapping[chord][patternNum]);
 }
 
 export function getShuffledStandardNotationChordNotes(chords) {
-	return chords.map(chord => standardNotationChordToNotesMapping[chord.name]);
+	return chords.map(chord => standardNotationChordToNotesMapping[chord]);
 }

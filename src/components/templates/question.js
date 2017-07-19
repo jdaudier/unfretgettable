@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 import {getShuffledStandardNotationChordNotes} from '../common/shuffle';
 
 // Action Creators
-import { replaceActiveNotes} from '../../state/notes/actions';
+import { replaceActiveNotes } from '../../state/notes/actions';
 
 import StandardNotation from '../svgs/standard-notation';
 import LeftArrow from '../svgs/left-arrow';
@@ -21,7 +21,7 @@ class Question extends Component {
 	render () {
 		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
 
-		const chord = showNotes ? null : data[currentIndex];
+		const chord = showNotes ? {} : data[currentIndex];
 		const noteIds = showNotes ? data[currentIndex] : getShuffledStandardNotationChordNotes(data)[currentIndex];
 
 		return (
@@ -29,7 +29,7 @@ class Question extends Component {
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{showNotes ? 'Name This Note' : chord.name}</Header>
+						<Header>{showNotes ? 'Name This Note' : chord}</Header>
 					</Nav>
 				</Link>
 				<StandardNotation noteIds={noteIds} />
