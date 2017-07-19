@@ -17,6 +17,7 @@ export const chordToNotesMapping = {
 	Em: ['e1s', 'b2s', 'g3s', 'e4s2f3fin', 'b5s2f', 'e6s'],
 	D: ['f1s2f', 'd2s3f', 'a3s2f1fin', 'd4s', 'x5s', 'x6s'],
 	A7: ['e1s', 'c2s2f', 'g3s', 'e4s2f1fin', 'a5s', 'x6s'],
+	// A7: ['e1s', 'c2s2f3fin', 'g3s', 'e4s2f', 'a5s', 'x6s'],
 };
 
 export const standardNotationChordToNotesMapping = {
