@@ -19,6 +19,7 @@ class Home extends Component {
 		notes: getShuffledNotes(),
 		chords: getShuffledChords(),
 		showQuestion: false,
+		showChordSpelling: false,
 		goingBackwards: true,
 	};
 
@@ -47,6 +48,7 @@ class Home extends Component {
 	renderQuestion() {
 		this.setState({
 			showQuestion: true,
+			showChordSpelling: false,
 		});
 	}
 
@@ -54,6 +56,7 @@ class Home extends Component {
 		this.setState({
 			showQuestion: false,
 			goingBackwards: false,
+			showChordSpelling: false,
 		});
 	}
 
@@ -70,8 +73,22 @@ class Home extends Component {
 		});
 	}
 
+	renderPrevChordSpelling() {
+		this.setState(prevState => {
+			const currentIndex = prevState.currentIndex - 1;
+
+			return {
+				showChordSpelling: true,
+				showQuestion: false,
+				goingBackwards: true,
+				currentIndex,
+				showHome: currentIndex === -1,
+			}
+		});
+	}
+
 	render () {
-		const {showHome, currentIndex, notes, chords, showQuestion, showNotes, goingBackwards} = this.state;
+		const {showHome, currentIndex, notes, chords, showQuestion, showNotes, showChordSpelling, goingBackwards} = this.state;
 
 		if (showHome) {
 			return (
@@ -101,6 +118,7 @@ class Home extends Component {
 						  currentIndex={currentIndex}
 						  renderAnswer={() => this.renderAnswer()}
 						  renderPrevAnswer={() => this.renderPrevAnswer()}
+						  renderChordSpelling={() => this.renderPrevChordSpelling()}
 				/>
 			)
 		}
@@ -108,11 +126,12 @@ class Home extends Component {
 		return (
 			<Answer data={data}
 					showNotes={showNotes}
+					showChordSpelling={showChordSpelling}
 					goingBackwards={goingBackwards}
 					currentIndex={currentIndex}
 					renderNextQuestion={() => this.renderNextQuestion({showNotes})}
 					renderQuestion={() => this.renderQuestion()}
-					isLastNote={currentIndex === data.length - 1}
+					isLastItem={currentIndex === data.length - 1}
 			/>
 		)
 	}

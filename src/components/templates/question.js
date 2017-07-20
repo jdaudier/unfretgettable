@@ -19,7 +19,7 @@ import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
 
 class Question extends Component {
 	render () {
-		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer} = this.props;
+		const {showNotes, currentIndex, data, renderAnswer, renderPrevAnswer, renderChordSpelling} = this.props;
 		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data)[currentIndex];
 		const chord = showNotes ? {} : data[currentIndex];
 
@@ -31,13 +31,16 @@ class Question extends Component {
 						<Header>{showNotes ? 'Name This Note' : chord}</Header>
 					</Nav>
 				</Link>
-				<StandardNotation noteIds={noteIds} />
+				{showNotes && <StandardNotation noteIds={noteIds} />}
 				<ButtonWrapper>
 					<Button width='50%'
 							borderRadius="0"
 							gradient="light"
 							boxShadowUpwards={true}
-							onClick={() => renderPrevAnswer()}
+							onClick={() => {
+								showNotes && renderPrevAnswer();
+								!showNotes && renderChordSpelling();
+							}}
 					>
 						<LeftArrow fill="#363637" />
 					</Button>
@@ -60,6 +63,7 @@ Question.contextTypes = {
 Question.propTypes = {
 	renderAnswer: PropTypes.func.isRequired,
 	renderPrevAnswer: PropTypes.func.isRequired,
+	renderChordSpelling: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -72,4 +76,4 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question)
+export default connect(mapStateToProps, mapDispatchToProps)(Question);
