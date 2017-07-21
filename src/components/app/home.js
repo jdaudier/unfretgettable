@@ -6,10 +6,10 @@ import Question from '../templates/question';
 import Answer from '../templates/answer';
 
 // Helpers
-import {getShuffledNotes, getShuffledChords} from '../common/shuffle';
+import { getShuffledNotes, getShuffledChords } from '../common/shuffle';
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
+import { Bar, Header, ImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
 
 class Home extends Component {
 	state = {
@@ -97,6 +97,7 @@ class Home extends Component {
 						<Bar />
 						<Header>Unfretgettable</Header>
 					</Nav>
+					<ImageWrapper />
 					<ButtonWrapper>
 						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: true})}>
 							Notes

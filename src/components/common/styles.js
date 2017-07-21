@@ -8,7 +8,7 @@ export const Nav = styled.div`
 
 export const Container = styled.div`
 	font-family: 'Roboto', sans-serif;
-	margin-top: 100px;
+	margin-top: 86px;
 `;
 
 export const Bar = styled.div`
@@ -29,6 +29,14 @@ export const Header = styled.h1`
 	margin: 0;
 	padding-bottom: 10px;
 	padding-top: 10px;
+`;
+
+export const ImageWrapper = styled.div`
+	height: calc(100vh - 206px);
+	background-image: url(music.jpg) ;
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-size:  cover;
 `;
 
 export const Button = styled.button`
@@ -65,4 +73,5 @@ export const Row = styled.div`
 
 export const SVG = styled.svg`
 	max-height: calc(100vh - 250px);
+	margin-top: ${props => props.marginTop ? '20px' : 0};
 `;
