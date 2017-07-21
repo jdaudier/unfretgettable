@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import ChordSpelling from './chord-spelling';
 import ChordDiagram from '../svgs/chord-diagram';
@@ -148,12 +147,4 @@ Answer.propTypes = {
 	showChordSpelling: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state) {
-	return {}
-}
-
-function mapDispatchToProps(dispatch) {
-	return {};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Answer);
+export default Answer;
