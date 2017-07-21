@@ -25,7 +25,6 @@ export const Header = styled.h1`
 	background: linear-gradient(to left, #bdc1c5 , #eef2f3);
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
     color: #363637;
-    height: 36px;
 	text-align: center;
 	margin: 0;
 	padding-bottom: 10px;
@@ -39,9 +38,11 @@ export const CoverImageWrapper = styled.div`
 `;
 
 export const MusicBookImageWrapper = styled.div`
-	height: calc(100vh - 146px);
+	height: calc(100vh - 110px);
 	background: url('music-book.jpg') no-repeat center center fixed;
   	background-size: cover;
+  	margin-top: -36px;
+  	position: relative;
 `;
 
 export const Dimmer = styled.div`
@@ -92,10 +93,10 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Row = styled.div`
-	height: calc(100vh - 146px);
-	position: relative;
+	height: ${props => props.showNotes ? 'calc(100vh - 146px)' : 'calc(100vh - 110px'};
 	text-align: center;
 	overflow: auto;
+	margin-top: ${props => props.showNotes ? '0' : -36};
 `;
 
 export const SVG = styled.svg`

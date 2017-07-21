@@ -14,7 +14,7 @@ import StandardNotation from '../svgs/standard-notation';
 import LeftArrow from '../svgs/left-arrow';
 
 // Shared Styles
-import { Bar, Header, Button, MusicBookImageWrapper, Dimmer, ButtonWrapper, Nav, LargeText } from '../common/styles';
+import { Row, Bar, Header, Button, MusicBookImageWrapper, Dimmer, ButtonWrapper, Nav, LargeText } from '../common/styles';
 
 
 class Question extends Component {
@@ -24,7 +24,7 @@ class Question extends Component {
 		const chord = showNotes ? {} : data[currentIndex];
 
 		return (
-			<div>
+			<Row showNotes={showNotes}>
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
@@ -56,7 +56,7 @@ class Question extends Component {
 					>Answer
 					</Button>
 				</ButtonWrapper>
-			</div>
+			</Row>
 		)
 	}
 }

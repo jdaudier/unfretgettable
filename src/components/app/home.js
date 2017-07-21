@@ -9,7 +9,7 @@ import Answer from '../templates/answer';
 import { getShuffledNotes, getShuffledChords } from '../common/shuffle';
 
 // Shared Styles
-import { Bar, Header, CoverImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
+import { Row, Bar, Header, CoverImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
 
 class Home extends Component {
 	state = {
@@ -92,7 +92,7 @@ class Home extends Component {
 
 		if (showHome) {
 			return (
-				<div>
+				<Row>
 					<Nav>
 						<Bar />
 						<Header>Unfretgettable</Header>
@@ -106,7 +106,7 @@ class Home extends Component {
 							Chords
 						</Button>
 					</ButtonWrapper>
-				</div>
+				</Row>
 			)
 		}
 

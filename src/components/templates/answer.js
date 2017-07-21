@@ -14,7 +14,7 @@ import { chordToNotesMapping } from '../common/chords';
 
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
+import { Row, Bar, Header, Button, ButtonWrapper, Nav } from '../common/styles';
 
 
 class Answer extends Component {
@@ -69,7 +69,7 @@ class Answer extends Component {
 			showChordSpelling ? getShuffledChordNotes(data, 'chordSpelling')[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
 
 		return (
-			<div>
+			<Row>
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
@@ -131,7 +131,7 @@ class Answer extends Component {
 						</ButtonWrapper>
 					</div>
 				)}
-			</div>
+			</Row>
 		)
 	}
 }
