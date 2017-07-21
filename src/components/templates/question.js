@@ -14,7 +14,7 @@ import StandardNotation from '../svgs/standard-notation';
 import LeftArrow from '../svgs/left-arrow';
 
 // Shared Styles
-import { Bar, Header, Button, ButtonWrapper, Nav} from '../common/styles';
+import { Bar, Header, Button, MusicBookImageWrapper, Dimmer, ButtonWrapper, Nav, LargeText } from '../common/styles';
 
 
 class Question extends Component {
@@ -28,10 +28,15 @@ class Question extends Component {
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{showNotes ? 'Name This Note' : chord}</Header>
+						<Header>{showNotes ? 'Name This Note' : ''}</Header>
 					</Nav>
 				</Link>
-				{showNotes && <StandardNotation noteIds={noteIds} />}
+				{showNotes ? <StandardNotation noteIds={noteIds} /> : (
+					<MusicBookImageWrapper>
+						<Dimmer />
+						<LargeText>{chord}</LargeText>
+					</MusicBookImageWrapper>
+				)}
 				<ButtonWrapper>
 					<Button width='50%'
 							borderRadius="0"

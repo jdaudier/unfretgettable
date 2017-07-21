@@ -25,18 +25,41 @@ export const Header = styled.h1`
 	background: linear-gradient(to left, #bdc1c5 , #eef2f3);
 	box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
     color: #363637;
+    height: 36px;
 	text-align: center;
 	margin: 0;
 	padding-bottom: 10px;
 	padding-top: 10px;
 `;
 
-export const ImageWrapper = styled.div`
+export const CoverImageWrapper = styled.div`
 	height: calc(100vh - 206px);
-	background-image: url(music.jpg) ;
-	background-position: center center;
-	background-repeat:  no-repeat;
-	background-size:  cover;
+	background: url('music.jpg') no-repeat center center fixed;
+  	background-size: cover;
+`;
+
+export const MusicBookImageWrapper = styled.div`
+	height: calc(100vh - 146px);
+	background: url('music-book.jpg') no-repeat center center fixed;
+  	background-size: cover;
+`;
+
+export const Dimmer = styled.div`
+	background: black;
+	height: 100%;
+	opacity: .6;
+	position: absolute;
+	width: 100%;
+`;
+
+export const LargeText = styled.h1`
+	color: white;
+	font-size: 9em;
+	margin: 0;
+ 	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 `;
 
 export const Button = styled.button`
@@ -66,7 +89,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const Row = styled.div`
-	height: calc(100vh - 180px);
+	height: calc(100vh - 146px);
 	text-align: center;
 	overflow: auto;
 `;

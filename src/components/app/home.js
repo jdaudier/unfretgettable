@@ -9,7 +9,7 @@ import Answer from '../templates/answer';
 import { getShuffledNotes, getShuffledChords } from '../common/shuffle';
 
 // Shared Styles
-import { Bar, Header, ImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
+import { Bar, Header, CoverImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
 
 class Home extends Component {
 	state = {
@@ -97,7 +97,7 @@ class Home extends Component {
 						<Bar />
 						<Header>Unfretgettable</Header>
 					</Nav>
-					<ImageWrapper />
+					<CoverImageWrapper />
 					<ButtonWrapper>
 						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: true})}>
 							Notes
