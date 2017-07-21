@@ -46,7 +46,10 @@ export const MusicBookImageWrapper = styled.div`
 
 export const Dimmer = styled.div`
 	background: black;
-	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	opacity: .6;
 	position: absolute;
 	width: 100%;
@@ -90,6 +93,7 @@ export const ButtonWrapper = styled.div`
 
 export const Row = styled.div`
 	height: calc(100vh - 146px);
+	position: relative;
 	text-align: center;
 	overflow: auto;
 `;
