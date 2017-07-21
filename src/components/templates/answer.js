@@ -84,7 +84,7 @@ class Answer extends Component {
 					/>
 				) : (
 					<div>
-						<ChordDiagram noteIds={noteIds} />
+						<ChordDiagram noteIds={noteIds} showNotes={showNotes} />
 						<ButtonWrapper>
 							<Button width='50%'
 									borderRadius="0"
