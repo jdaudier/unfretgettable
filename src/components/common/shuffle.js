@@ -11,6 +11,6 @@ export function getShuffledChords() {
 	return shuffle(chords);
 }
 
-export function getShuffledChordNotes(chords, patternNum = 1) {
-	return chords.map(chord => chordToNotesMapping[chord][patternNum]);
+export function getShuffledChordNotes(chords, key = 1) {
+	return chords.map(chord => chordToNotesMapping[chord][key]);
 }

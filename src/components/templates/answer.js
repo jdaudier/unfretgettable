@@ -24,11 +24,12 @@ class Answer extends Component {
 		const {goingBackwards, showNotes, data, currentIndex, showChordSpelling} = this.props;
 
 		const chord = showNotes ? {} : data[currentIndex];
-		const patternCount = showNotes ? 1 : Object.keys(chordToNotesMapping[chord]).length;
+		const patternCount = showNotes ? 1 : Object.keys(chordToNotesMapping[chord]).length - 1;
 
 		this.state = {
 			patternNum: goingBackwards ? patternCount : 1,
 			showChordSpelling,
+			patternCount,
 		};
 	}
 
@@ -57,15 +58,15 @@ class Answer extends Component {
 	}
 
 	render() {
-		const {patternNum, showChordSpelling} = this.state;
+		const {patternCount, patternNum, showChordSpelling} = this.state;
 		const {showNotes, data, currentIndex, isLastItem, renderNextQuestion, renderQuestion} = this.props;
 
 		const chord = showNotes ? {} : data[currentIndex];
 		const isFirstPattern = showNotes || patternNum === 1;
-		const patternCount = showNotes ? 1 : Object.keys(chordToNotesMapping[chord]).length;
 		const isLastPattern = showNotes || patternNum === patternCount;
 
-		const noteIds = showNotes ? data[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
+		const noteIds = showNotes ? data[currentIndex] :
+			showChordSpelling ? getShuffledChordNotes(data, 'chordSpelling')[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
 
 		return (
 			<div>
