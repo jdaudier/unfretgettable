@@ -73,7 +73,7 @@ class Answer extends Component {
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
-						<Header>{showNotes ? noteNameMapping[noteIds][0] : chord}</Header>
+						<Header>{showNotes ? noteNameMapping[[noteIds][0]] : chord}</Header>
 					</Nav>
 				</Link>
 				{showChordSpelling ? (
