@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import HomeIcon from '../svgs/home-icon';
 import ChordSpelling from './chord-spelling';
 import ChordDiagram from '../svgs/chord-diagram';
 import LeftArrow from '../svgs/left-arrow';
@@ -69,7 +70,8 @@ class Answer extends Component {
 			showChordSpelling ? getShuffledChordNotes(data, 'chordSpelling')[currentIndex] : getShuffledChordNotes(data, patternNum)[currentIndex];
 
 		return (
-			<Row>
+			<Row showNotes={showNotes} isAnswer>
+				<HomeIcon />
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />

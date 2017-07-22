@@ -9,7 +9,7 @@ import Answer from '../templates/answer';
 import { getShuffledNotes, getShuffledChords } from '../common/shuffle';
 
 // Shared Styles
-import { Row, Bar, Header, CoverImageWrapper, Button, ButtonWrapper, Nav } from '../common/styles';
+import { Logo, LogoCopy, Border, ButtonContainer, HomePageButton, CoverImageWrapper } from '../common/styles';
 
 class Home extends Component {
 	state = {
@@ -92,22 +92,21 @@ class Home extends Component {
 
 		if (showHome) {
 			return (
-				<Row>
-					<Nav>
-						<Bar />
-						<Header>Unfretgettable</Header>
-					</Nav>
-					<CoverImageWrapper />
-					<ButtonWrapper>
-						<Button gradient="light" width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: true})}>
+				<CoverImageWrapper>
+					<Logo />
+					<LogoCopy>Unfretgettable
+						<Border />
+					</LogoCopy>
+					<ButtonContainer>
+						<HomePageButton onClick={() => this.renderNextQuestion({showNotes: true})}>
 							Notes
-						</Button>
-						<Button width='100%' borderRadius="0" onClick={() => this.renderNextQuestion({showNotes: false})}>
+						</HomePageButton>
+						<HomePageButton white onClick={() => this.renderNextQuestion({showNotes: false})}>
 							Chords
-						</Button>
-					</ButtonWrapper>
-				</Row>
-			)
+						</HomePageButton>
+					</ButtonContainer>
+				</CoverImageWrapper>
+			);
 		}
 
 		const data = showNotes ? notes : chords;

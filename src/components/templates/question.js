@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import HomeIcon from '../svgs/home-icon';
+
 // Helpers
-import {getShuffledChordNotes} from '../common/shuffle';
+import { getShuffledChordNotes } from '../common/shuffle';
 
 // Action Creators
 import { replaceActiveNotes } from '../../state/notes/actions';
@@ -25,6 +27,7 @@ class Question extends Component {
 
 		return (
 			<Row showNotes={showNotes}>
+				<HomeIcon />
 				<Link to={{pathname: '/'}}>
 					<Nav>
 						<Bar />
