@@ -1,4 +1,4 @@
-export const chords = ['C', 'G7', 'G', 'D7', 'Em', 'D', 'A7'];
+export const chords = ['C', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am'];
 
 export const chordToNotesMapping = {
 	C: {
@@ -30,5 +30,9 @@ export const chordToNotesMapping = {
 		1: ['e1s', 'c2s2f', 'g3s', 'e4s2f1fin', 'a5s', 'x6s'],
 		2: ['e1s', 'c2s2f3fin', 'g3s', 'e4s2f', 'a5s', 'x6s'],
 		chordSpelling: ['e1s', 'c2s2f', 'g1s3f', 'a3s2f'],
+	},
+	Am: {
+		1: ['e1s', 'c2s1f', 'a3s2f3fin', 'e4s2f', 'a5s', 'x6s'],
+		chordSpelling: ['e1s', 'c2s1f', 'a3s2f'],
 	}
 };
