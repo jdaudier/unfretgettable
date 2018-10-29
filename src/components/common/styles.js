@@ -8,8 +8,8 @@ export const white = '#FFF';
 export const black = '#000';
 
 export const mq = facepaint([
-	'@media(min-width: 0)',
 	'@media(min-width: 768px)',
+	'@media(min-width: 0)',
 ]);
 
 export const center = {
