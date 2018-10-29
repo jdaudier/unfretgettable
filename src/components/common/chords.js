@@ -89,6 +89,7 @@ export const chordToNotesMapping = {
 	G: {
 		1: ['g1s3f-3', 'b2s', 'g3s', 'd4s', 'b5s2f-1', 'g6s3f-2'],
 		2: ['g1s3f-4', 'b2s', 'g3s', 'd4s', 'b5s2f-2', 'g6s3f-3'],
+		3: ['g1s3f-4', 'd2s3f-3', 'g3s', 'd4s', 'b5s2f-1', 'g6s3f-2'],
 		chordSpelling: ['g3s', 'd2s3f', 'b2s'],
 		startingFret: 1,
 	},
@@ -146,6 +147,7 @@ export const chordToNotesMapping = {
 	},
 	Cadd9: {
 		1: ['e1s', 'd2s3f-3', 'g3s', 'e4s2f-1', 'c5s3f-2', 'x6s'],
+		2: ['g1s3f-4', 'd2s3f-3', 'g3s', 'e4s2f-1', 'c5s3f-2', 'x6s'],
 		chordSpelling: ['d2s3f', 'g3s', 'e4s2f', 'c5s3f'],
 		startingFret: 1,
 	},
