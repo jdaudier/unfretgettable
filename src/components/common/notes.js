@@ -26,6 +26,8 @@ export const notes = [
 	['a1s5f'],
 	['a3s1f'],
 	['a6s4f'],
+	['d2s4f'],
+	['d4s1f'],
 ];
 
 export const noteNameMapping = {
@@ -41,6 +43,8 @@ export const noteNameMapping = {
 	b2s: 'B',
 	c2s1f: 'C',
 	d2s3f: 'D',
+	d2s4f: 'D#',
+	d4s1f: 'D#',
 	e1s: 'E',
 	f1s1f: 'F',
 	g1s3f: 'G',
