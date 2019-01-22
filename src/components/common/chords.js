@@ -195,6 +195,7 @@ export const chordToNotesMapping = {
 	},
 	Am7: {
 		1: ['g1s3f-4', 'c2s1f-1', 'a3s2f-3', 'e4s2f-2', 'a5s', 'x6s'],
+		2: ['e1s', 'c2s1f-1', 'g3s', 'e4s2f-2', 'a5s', 'x6s'],
 		chordSpelling: ['g1s3f', 'e1s', 'c2s1f', 'a3s2f'],
 		startingFret: 1,
 	},
