@@ -1,4 +1,4 @@
-export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#'];
+export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'F#m'];
 
 export const chordInputMapping = {
 	C: 'C',
@@ -76,6 +76,10 @@ export const chordInputMapping = {
 	F: 'F',
 	B7: 'B7',
 	'B 7': 'B7',
+	'F#M': 'F#m',
+	'F# M': 'F#m',
+	'F#MIN': 'F#m',
+	'F# MIN': 'F#m',
 };
 
 export const chordToNotesMapping = {
@@ -224,4 +228,9 @@ export const chordToNotesMapping = {
 		chordSpelling: ['a3s2f', 'f4s4f', 'd4s1f', 'b5s2f'],
 		startingFret: 1,
 	},
+	'F#m': {
+		1: ['f1s2f-1', 'c2s2f-1', 'a3s2f-1', 'f4s4f-3', 'x5s', 'x6s'],
+		chordSpelling: ['c2s2f', 'a3s2f', 'f4s4f'],
+		startingFret: 1,
+	}
 };
