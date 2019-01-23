@@ -495,6 +495,12 @@ class ChordDiagram extends React.Component {
 							})}>
 								{this.getFinger(['g6s4f', 'a6s4f'], noteIds, noteIdsWithoutFinger)}
 							</div>
+							<div css={fretNumber({
+								number: 4,
+								chord,
+							})}>
+								4
+							</div>
 						</div>
 						<div css={cell({noBorder: false})}>
 							<div css={note({

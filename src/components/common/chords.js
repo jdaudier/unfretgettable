@@ -223,7 +223,7 @@ export const chordToNotesMapping = {
 	'C#m/G#': {
 		1: ['g1s4f-1', 'e2s5f-2', 'c3s6f-4', 'g4s6f-3', 'x5s', 'x6s'],
 		chordSpelling: ['e2s5f', 'c3s6f', 'g4s6f'],
-		startingFret: 3,
+		startingFret: 4,
 	},
 	'C/G': {
 		1: ['e1s', 'c2s1f-1', 'g3s', 'e4s2f-2', 'c5s3f-4', 'g6s3f-3'],
