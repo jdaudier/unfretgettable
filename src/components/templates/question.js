@@ -1,6 +1,6 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { Link } from '@reach/router';
 import PropTypes from 'prop-types';
 
@@ -15,14 +15,14 @@ import LeftArrow from '../svgs/left-arrow';
 // Shared Styles
 import * as styles from '../common/styles';
 
-const musicBookImageWrapper = css({
+const musicBookImageWrapper = {
 	height: 'calc(100vh - 110px)',
 	background: 'url("music-book.jpg") no-repeat center center fixed',
 	backgroundSize: 'cover',
 	position: 'relative',
-});
+};
 
-const dimmer = css({
+const dimmer = {
 	background: styles.black,
 	top: 0,
 	bottom: 0,
@@ -31,9 +31,9 @@ const dimmer = css({
 	opacity: .6,
 	position: 'absolute',
 	width: '100%',
-});
+};
 
-const largeText = css({
+const largeText = {
 	color: styles.white,
 	fontSize: '5em',
 	margin: 0,
@@ -42,7 +42,7 @@ const largeText = css({
 	top: '45%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-});
+};
 
 class Question extends React.Component {
 	render () {

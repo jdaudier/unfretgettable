@@ -1,6 +1,6 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 
 import TrebleClef from '../../components/svgs/treble-clef';
@@ -8,19 +8,19 @@ import TrebleClef from '../../components/svgs/treble-clef';
 // Shared Styles
 import * as styles from '../common/styles';
 
-const row = css({
+const row = {
 	display: 'flex',
 	height: 44,
 	margin: '0 auto',
 	width: 'calc(100% - 60px)',
-});
+};
 
-const cell = props => (css({
+const cell = props => ({
 	borderBottom: `4px solid ${props.noBorder ? 'transparent' : styles.almostBlack}`,
 	flex: props.noteCol ? '0 0 96px' :
 		props.lastCol ? '0 0 11%' : '1 1 auto',
 	position: 'relative',
-}));
+});
 
 function getIdsMinusPosition(noteIds) {
 	return noteIds.map(noteId => {
@@ -33,7 +33,7 @@ function getIdsToMoveRight(noteIds) {
 	return getIdsMinusPosition(ids);
 }
 
-const note = props => (css({
+const note = props => ({
 	bottom: -3,
 	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
 	height: 'calc(100% + 5px)',
@@ -41,31 +41,31 @@ const note = props => (css({
 	position: 'absolute',
 	transform: props.stepUp ? 'translate(-50%, -50%)' :
 		props.stepDown ? 'translate(-50%, 50%)' : 'translateX(-50%)',
-}));
-
-const blackPath = css({
-	fill: styles.almostBlack
 });
 
-const line = props => (css({
+const blackPath = {
+	fill: styles.almostBlack
+};
+
+const line = props => ({
 	backgroundColor: styles.almostBlack,
 	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
 	height: 4,
 	position: 'absolute',
 	top: props.stepDown ? '100%' : -4,
 	width: '100%',
-}));
+});
 
-const sharp = props => (css({
+const sharp = props => ({
 	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
 	height: 'calc(100% + 30px)',
 	position: 'absolute',
 	right: props.ledger ? 10 : 0,
 	top: props.stepUp ? -36 :
 		props.stepDown ? 7 : -15,
-}));
+});
 
-const flat = props => (css({
+const flat = props => ({
 	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
 	fill: styles.almostBlack,
 	height: 'calc(100% + 42px)',
@@ -73,7 +73,7 @@ const flat = props => (css({
 	right: props.ledger ? 10 : 0,
 	top: props.stepUp ? -59 :
 		props.stepDown ? -14 : -38,
-}));
+});
 
 function NoteSVG(props) {
 	return (

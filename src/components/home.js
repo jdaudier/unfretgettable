@@ -1,6 +1,6 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx } from '@emotion/core'
 import PropTypes from 'prop-types';
 
 import Question from './templates/question';
@@ -15,22 +15,22 @@ import { getShuffledNotes, getShuffledChords } from './common/shuffle';
 import * as styles from './common/styles';
 import {mq} from './common/styles';
 
-export const coverImage = css(mq({
+export const coverImage = mq({
 	height: [368, 'calc(100vh - 200px)'],
 	background: 'url("music-book.jpg") no-repeat center center fixed',
 	backgroundSize: 'cover',
 	position: 'relative',
-}));
+});
 
-const buttonContainer = css(mq({
+const buttonContainer = mq({
 	textAlign: 'center',
 	position: 'absolute',
 	width: '100%',
 	top: [338, 'auto'],
 	bottom: [undefined, -111],
-}));
+});
 
-export const button = props => (css(mq({
+export const button = props => (mq({
 	background: props.white ? styles.white : styles.red,
 	border: props.white ? `2px solid ${styles.red}` : 'none',
 	borderRadius: 8,
@@ -46,9 +46,9 @@ export const button = props => (css(mq({
 	textTransform: 'uppercase',
 	verticalAlign: 'top',
 	width: '80%',
-})));
+}));
 
-const logo = css(mq({
+const logo = mq({
 	backgroundColor: '#1d1d1d',
 	color: styles.red,
 	height: 70,
@@ -57,9 +57,9 @@ const logo = css(mq({
 	right: 0,
 	top: [90, '20%'],
 	width: '100%',
-}));
+});
 
-const border = css({
+const border = {
 	position: 'absolute',
 	top: 8,
 	right: 0,
@@ -67,9 +67,9 @@ const border = css({
 	bottom: 8,
 	borderTop: `1px solid ${styles.red}`,
 	borderBottom: `1px solid ${styles.red}`,
-});
+};
 
-const logoCopy = css(mq({
+const logoCopy = mq({
 	color: styles.red,
 	height: 70,
 	letterSpacing: 2,
@@ -79,7 +79,7 @@ const logoCopy = css(mq({
 	textAlign: 'center',
 	top: [90, '20%'],
 	width: '100%',
-}));
+});
 
 class Home extends React.Component {
 	constructor(props) {

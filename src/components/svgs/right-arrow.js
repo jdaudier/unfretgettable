@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import * as styles from '../common/styles';
 
-const svg = props => (css({
+const svg = props => ({
 	fill: props.fill ? props.fill : styles.white,
 	height: 26,
 	position: 'relative',
 	top: 2,
-}));
+});
 
 export default function RightArrow() {
 	return (

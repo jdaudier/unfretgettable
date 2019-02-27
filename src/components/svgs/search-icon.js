@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
-const svg = css({
+const svg = {
 	display: 'inline-block',
 	color: 'currentColor',
 	fill: 'currentColor',
 	height: 30,
 	width: 30,
-});
+};
 
 export default function SearchIcon() {
 	return (

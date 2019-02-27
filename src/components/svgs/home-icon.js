@@ -1,30 +1,30 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { Link } from '@reach/router';
 import * as styles from '../common/styles';
 
-const svg = css({
+const svg = {
 	height: 24,
 	position: 'absolute',
 	right: 10,
 	top: 3,
 	zIndex: 1,
-});
+};
 
-const whiteStroke = css({
+const whiteStroke = {
 	fill: 'none',
 	stroke: styles.white,
 	strokeWidth: 2,
 	strokeLinecap: 'round',
 	strokeLinejoin: 'round',
-});
+};
 
-const circle = css({
+const circle = {
 	fill: 'none',
 	stroke: styles.white,
 	strokeWidth: 2,
 	strokeMiterlimit: 10,
-});
+};
 
 export default function HomeIcon() {
 	return (

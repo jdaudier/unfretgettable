@@ -1,16 +1,16 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
-const svg = css({
+const svg = {
 	bottom: -72,
 	height: 300,
 	left: 0,
 	position: 'absolute',
-});
+};
 
-const path = css({
+const path = {
 	fill: 'none',
-});
+};
 
 export default function TrebleClef() {
 	return (

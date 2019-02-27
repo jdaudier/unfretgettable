@@ -1,6 +1,6 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css, keyframes } from '@emotion/core'
+import { jsx, keyframes } from '@emotion/core'
 import PropTypes from 'prop-types';
 import * as styles from '../common/styles';
 
@@ -43,23 +43,23 @@ const drawLine = keyframes({
 	}
 });
 
-const openNotes = props => (css({
+const openNotes = props => ({
 	display: 'flex',
 	height: props.hasNoOpenOrMuteStrings ? 30 : 76,
 	margin: '0 auto',
 	width: '100%',
-}));
+});
 
-const fret = props => (css({
+const fret = props => ({
 	display: !props.chord || (props.number >= props.chord.startingFret && props.number <= props.chord.startingFret + 4) ? 'flex': 'none',
 	height: 76,
 	'div:not(:first-of-type):not(:last-child)': {
 		borderTop: props.number === 1 ? `10px solid ${styles.almostBlack}` :
 			props.chord && (props.number === props.chord.startingFret) ? `2px solid ${styles.almostBlack}` : 'none',
 	}
-}));
+});
 
-const cell = props => (css({
+const cell = props => ({
 	borderBottom: props.noBorder ? 'none' : `2px solid ${styles.almostBlack}`,
 	borderRight: props.noBorder ? 'none' : `2px solid ${styles.almostBlack}`,
 	flex: '1 1 auto',
@@ -73,9 +73,9 @@ const cell = props => (css({
 		borderBottom: 'none',
 		borderRight: 'none',
 	}
-}));
+});
 
-const note = props => (css({
+const note = props => ({
 	borderRadius: '50%',
 	backgroundColor: styles.almostBlack,
 	color: styles.white,
@@ -92,7 +92,7 @@ const note = props => (css({
 	width: 'calc(76px / 2)',
 
 	animation: props.noteIds && props.ids.some(id => props.noteIds.indexOf(id) > -1) ? `1.5s ${fadeIn} ease-in, 1.5s ${scaleIn} cubic-bezier(0.5, -0.5, 0.5, 1.5)` : 'none',
-}));
+});
 
 const fretNumberForNotes = [5];
 
@@ -120,15 +120,15 @@ function getFretNumberOpacity(props) {
 	return 1;
 }
 
-const fretNumber = props => (css({
+const fretNumber = props => ({
 	color: getFretNumberColor(props),
 	display: shouldShowFretNumber(props),
 	fontSize: 26,
 	opacity: getFretNumberOpacity(props),
 	...styles.center,
-}));
+});
 
-const fretDot = css({
+const fretDot = {
 	borderRadius: '50%',
 	backgroundColor: lightGray,
 	height: 'calc(76px / 2 / 1.5)',
@@ -136,7 +136,7 @@ const fretDot = css({
 	width: 'calc(76px / 2 / 1.5)',
 	zIndex: -1,
 	...styles.center,
-});
+};
 
 const circleSVG = props => ({
 	height: 'calc(76px / 2)',
@@ -157,7 +157,7 @@ const circle = props => ({
 	animation: `${drawLine} 4s ${!props.chord ? '0s' : '1s'} linear forwards`,
 });
 
-const x = props => (css({
+const x = props => ({
 	height: 'calc(76px / 2)',
 	left: '100%',
 	position: 'absolute',
@@ -165,9 +165,9 @@ const x = props => (css({
 	transform: 'translate(-50%, -50%)',
 	visibility: props.noteIds && props.ids.some(id => props.noteIds.indexOf(id) > -1) ? 'visible' : 'hidden',
 	width: 'calc(76px / 1.8)',
-}));
+});
 
-const slash = props => (css({
+const slash = props => ({
 	backgroundColor: styles.red,
 	borderRadius: 5,
 	height: 4,
@@ -184,7 +184,7 @@ const slash = props => (css({
 		animation: `.2s ${props.hasNoOpenStrings ? '1s' : '1.8s'} ${fillIn} ease-in both`,
 		transform: 'translateY(-50%) rotate(-45deg)',
 	},
-}));
+});
 
 class ChordDiagram extends React.Component {
 	fretHeight = 76;

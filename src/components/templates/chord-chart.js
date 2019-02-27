@@ -1,6 +1,6 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { Link } from '@reach/router';
 import PropTypes from 'prop-types';
 
@@ -17,7 +17,7 @@ import {getPatternCount} from "../common/utils";
 // Shared Styles
 import * as styles from '../common/styles';
 
-const searchContainer = props => (css({
+const searchContainer = props => ({
 	background: props.gradient === 'light' ? styles.lightGray : styles.red,
 	boxShadow: props.boxShadowUpwards ? '0 -3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 -3px 1px -1px rgba(0,0,0,0.2)' : '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)',
 	color: props.gradient === 'light' ? styles.almostBlack : styles.white,
@@ -31,7 +31,7 @@ const searchContainer = props => (css({
 	textTransform: 'uppercase',
 	verticalAlign: 'top',
 	width: props.width ? props.width : '100%',
-}));
+});
 
 class ChordChart extends React.Component {
 	constructor(props) {

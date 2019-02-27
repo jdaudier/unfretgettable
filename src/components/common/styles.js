@@ -1,5 +1,4 @@
 import facepaint from 'facepaint';
-import { css } from '@emotion/core';
 
 export const almostBlack = '#363637';
 export const red = '#FC1051';
@@ -19,31 +18,31 @@ export const center = {
 	transform: 'translate(-50%, -50%)',
 };
 
-export const row = props => (css({
+export const row = props => ({
 	marginTop: props.showNotes || props.isAnswer ? 86 : 50,
 	height: props.showNotes || props.isAnswer ? 'calc(100vh - 146px)' : 'calc(100vh - 110px)',
 	textAlign: 'center',
 	overflow: 'auto',
-}));
+});
 
-export const artboard = css(mq({
+export const artboard = mq({
 	height: 'calc(100vh - 200px)',
 	margin: '0 auto 40px',
 	width: ['100%', 450],
-}));
+});
 
-export const nav = css({
+export const nav = {
 	position: 'fixed',
 	top: 0,
 	width: '100%',
-});
+};
 
-export const bar = css({
+export const bar = {
 	background: red,
 	height: 30,
-});
+};
 
-export const header = css({
+export const header = {
 	background: lightGray,
 	boxShadow: '0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2)',
 	color: almostBlack,
@@ -51,16 +50,16 @@ export const header = css({
 	margin: 0,
 	paddingBottom: 10,
 	paddingTop: 10,
-});
+};
 
-export const buttonWrapper = css({
+export const buttonWrapper = {
 	textAlign: 'center',
 	position: 'fixed',
 	width: '100%',
 	bottom: 0,
-});
+};
 
-export const button = props => (css({
+export const button = props => ({
 	background: props.gradient === 'light' ? lightGray : red,
 	border: 'none',
 	borderRadius: typeof props.borderRadius !== 'undefined' ? props.borderRadius : 4,
@@ -75,4 +74,4 @@ export const button = props => (css({
 	textTransform: 'uppercase',
 	verticalAlign: 'top',
 	width: props.width ? props.width : '100%',
-}));
+});

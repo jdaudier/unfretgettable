@@ -1,23 +1,23 @@
 import React from 'react';
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import PropTypes from 'prop-types';
 
 import SearchIcon from '../svgs/search-icon';
 
 // Helpers
 import { chordInputMapping } from '../common/chords';
-import {red, white} from "./styles";
+import {red, white} from './styles';
 
-const searchForm = props => (css({
+const searchForm = props => ({
 	height: 60,
 	left: props.onHome ? 10 : 0,
 	position: props.onHome ? 'absolute' : 'static',
 	right: props.onHome ? 10 : 0,
 	top: props.onHome ? 10 : 0,
-}));
+});
 
-const searchLabel = props => (css({
+const searchLabel = props => ({
 	backgroundColor: props.onChordChart ? 'transparent' : 'rgba(0, 0, 0, .25)',
 	borderColor: props.hasError ? red : '#f2f2f2',
 	borderRadius: 30,
@@ -28,9 +28,9 @@ const searchLabel = props => (css({
 	position: 'relative',
 	width: props.isSearchExpanded ? '100%' : 70,
 	transition: 'all .5s',
-}));
+});
 
-const searchInput = props => (css({
+const searchInput = props => ({
 	backgroundColor: props.onChordChart ? 'transparent' : 'rgba(0, 0, 0, .25)',
 	border: 'none',
 	borderRadius: 30,
@@ -45,9 +45,9 @@ const searchInput = props => (css({
 	'&::placeholder': {
 		color: white,
 	}
-}));
+});
 
-const searchToggle = css({
+const searchToggle = {
 	color: white,
 	cursor: 'pointer',
 	display: 'inline-block',
@@ -57,9 +57,9 @@ const searchToggle = css({
 	position: 'absolute',
 	top: '50%',
 	transform: 'translateY(-50%)',
-});
+};
 
-const homeSearchIconWrapper = css({
+const homeSearchIconWrapper = {
 	color: white,
 	cursor: 'pointer',
 	display: 'inline-block',
@@ -68,7 +68,7 @@ const homeSearchIconWrapper = css({
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-});
+};
 
 class Search extends React.Component {
 	state = {
