@@ -1,4 +1,4 @@
-export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7', 'Bm/A'];
+export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7', 'Bm/A', 'Dsus2'];
 
 export const chordInputMapping = {
 	C: 'C',
@@ -122,6 +122,9 @@ export const chordInputMapping = {
 	'BMIN/A': 'Bm/A',
 	'B MIN/A': 'Bm/A',
 	'B MIN / A': 'Bm/A',
+	DSUS2: 'Dsus2',
+	'DSUS 2': 'Dsus2',
+	'D SUS 2': 'Dsus2',
 };
 
 export const chordToNotesMapping = {
@@ -304,6 +307,11 @@ export const chordToNotesMapping = {
 	'Bm/A': {
 		1: ['f1s2f-1', 'd2s3f-2', 'b3s4f-3', 'x4s', 'a5s', 'x6s'],
 		chordSpelling: ['f1s2f', 'd2s3f', 'b3s4f', 'a3s2f-l'],
+		startingFret: 1,
+	},
+	Dsus2: {
+		1: ['e1s', 'd2s3f-3', 'a3s2f-1', 'd4s', 'x5s', 'x6s'],
+		chordSpelling: ['e4s2f-r', 'a3s2f', 'd4s'],
 		startingFret: 1,
 	}
 };
