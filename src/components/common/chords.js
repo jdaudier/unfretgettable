@@ -1,4 +1,4 @@
-export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7'];
+export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7', 'Bm/A'];
 
 export const chordInputMapping = {
 	C: 'C',
@@ -117,6 +117,11 @@ export const chordInputMapping = {
 	'F MIN': 'Fm',
 	FMIN: 'Fm',
 	FMINOR: 'Fm',
+	'BM/A': 'Bm/A',
+	'BM / A': 'Bm/A',
+	'BMIN/A': 'Bm/A',
+	'B MIN/A': 'Bm/A',
+	'B MIN / A': 'Bm/A',
 };
 
 export const chordToNotesMapping = {
@@ -294,6 +299,11 @@ export const chordToNotesMapping = {
 	Dm7: {
 		1: ['f1s1f-1', 'c2s1f-1', 'a3s2f-2', 'd4s', 'x5s', 'x6s'],
 		chordSpelling: ['c2s1f', 'a3s2f', 'f4s3f', 'd4s'],
+		startingFret: 1,
+	},
+	'Bm/A': {
+		1: ['f1s2f-1', 'd2s3f-2', 'b3s4f-3', 'x4s', 'a5s', 'x6s'],
+		chordSpelling: ['f1s2f', 'd2s3f', 'b3s4f', 'a3s2f-l'],
 		startingFret: 1,
 	}
 };

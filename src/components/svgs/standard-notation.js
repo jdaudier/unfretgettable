@@ -33,11 +33,32 @@ function getIdsToMoveRight(noteIds) {
 	return getIdsMinusPosition(ids);
 }
 
+function getIdsToMoveLeft(noteIds) {
+	const ids = noteIds.filter(noteId => noteId.split('-')[1] === 'l');
+	return getIdsMinusPosition(ids);
+}
+
+function getNotePosition({noteIds, ids}) {
+	const shouldMoveLeft = getIdsToMoveLeft(noteIds) && ids.some(id => getIdsToMoveLeft(noteIds).indexOf(id) > -1);
+
+	const shouldMoveRight = getIdsToMoveRight(noteIds) && ids.some(id => getIdsToMoveRight(noteIds).indexOf(id) > -1);
+
+	if (shouldMoveLeft) {
+		return '-14%';
+	}
+
+	if (shouldMoveRight) {
+		return '113%';
+	}
+
+	return '50%';
+}
+
 const note = props => ({
 	bottom: -3,
 	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
 	height: 'calc(100% + 5px)',
-	left: getIdsToMoveRight(props.noteIds) && props.ids.some(id => getIdsToMoveRight(props.noteIds).indexOf(id) > -1) ? '113%' : '50%',
+	left: getNotePosition({noteIds: props.noteIds, ids: props.ids}),
 	position: 'absolute',
 	transform: props.stepUp ? 'translate(-50%, -50%)' :
 		props.stepDown ? 'translate(-50%, 50%)' : 'translateX(-50%)',
