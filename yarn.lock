@@ -1118,6 +1118,11 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@svgdotjs/svg.js@^3.0.12":
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/@svgdotjs/svg.js/-/svg.js-3.0.12.tgz#ef9f743576daaa458d56f4a253680b22c91d3527"
+  integrity sha512-2oaomFz21tW5L+LwCVchIr+LiTsNeKH3RguryLr4QpRdilc2Rw1R8T7MyOC1GwyRCZr0Jejx7k72PnHWooSpIg==
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.0.0.tgz#5acf239cd2747b1a36ec7e708de05d914cb9b948"
@@ -10234,6 +10239,13 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vexchords@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vexchords/-/vexchords-1.2.0.tgz#844041935cc90d7ed3e90e8a91ad9c4bd62b5e5a"
+  integrity sha512-ObhyFjGiN4pj+oFBGmCa9/geY6H6xqbEipTp1k8de7UXjvv30CriHjD8FR3Lf3jo1vSVUCePSJd7024qmJyNlA==
+  dependencies:
+    "@svgdotjs/svg.js" "^3.0.12"
 
 vfile-message@^1.0.0:
   version "1.1.1"
