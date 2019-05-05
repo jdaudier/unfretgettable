@@ -22,26 +22,30 @@ const cell = props => ({
 	position: 'relative',
 });
 
-function getIdsMinusPosition(noteIds) {
-	return noteIds.map(noteId => {
-		return noteId.split('-')[0];
+function getTruthyIds(noteIds) {
+	return noteIds.map(noteIdArr => {
+		return noteIdArr.filter(value => value !== undefined);
 	});
 }
 
 function getIdsToMoveRight(noteIds) {
-	const ids = noteIds.filter(noteId => noteId.split('-')[1] === 'r');
-	return getIdsMinusPosition(ids);
+	const ids = noteIds.filter(noteIdArr => noteIdArr[3] === 'r');
+	return getTruthyIds(ids);
 }
 
 function getIdsToMoveLeft(noteIds) {
-	const ids = noteIds.filter(noteId => noteId.split('-')[1] === 'l');
-	return getIdsMinusPosition(ids);
+	const ids = noteIds.filter(noteIdArr => noteIdArr[3] === 'l');
+	return getTruthyIds(ids);
 }
 
 function getNotePosition({noteIds, ids}) {
-	const shouldMoveLeft = getIdsToMoveLeft(noteIds) && ids.some(id => getIdsToMoveLeft(noteIds).indexOf(id) > -1);
+	const shouldMoveLeft = getIdsToMoveLeft(noteIds) && ids.some(idArr => {
+		return getIdsToMoveLeft(noteIds).some(noteArr => idArr.join() === noteArr.slice(0, 2).join());
+	});
 
-	const shouldMoveRight = getIdsToMoveRight(noteIds) && ids.some(id => getIdsToMoveRight(noteIds).indexOf(id) > -1);
+	const shouldMoveRight = getIdsToMoveRight(noteIds) && ids.some(idArr => {
+		return getIdsToMoveRight(noteIds).some(noteArr => idArr.join() === noteArr.slice(0, 2).join());
+	});
 
 	if (shouldMoveLeft) {
 		return '-14%';
@@ -56,7 +60,11 @@ function getNotePosition({noteIds, ids}) {
 
 const note = props => ({
 	bottom: -3,
-	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
+	display: getTruthyIds(props.noteIds) && props.ids.some(idArr => {
+		return getTruthyIds(props.noteIds).some(noteIds => {
+			return noteIds.filter(id => id !== 'r' && id !== 'l').join() === idArr.join();
+		})
+	}) ? 'block' : 'none',
 	height: 'calc(100% + 5px)',
 	left: getNotePosition({noteIds: props.noteIds, ids: props.ids}),
 	position: 'absolute',
@@ -70,7 +78,11 @@ const blackPath = {
 
 const line = props => ({
 	backgroundColor: styles.almostBlack,
-	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
+	display: getTruthyIds(props.noteIds) && props.ids.some(idArr => {
+		return getTruthyIds(props.noteIds).some(noteIds => {
+			return noteIds.filter(id => id !== 'r' && id !== 'l').join() === idArr.join();
+		})
+	}) ? 'block' : 'none',
 	height: 4,
 	position: 'absolute',
 	top: props.stepDown ? '100%' : -4,
@@ -78,7 +90,11 @@ const line = props => ({
 });
 
 const sharp = props => ({
-	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
+	display: getTruthyIds(props.noteIds) && props.ids.some(idArr => {
+		return getTruthyIds(props.noteIds).some(noteIds => {
+			return noteIds.join() === idArr.join();
+		})
+	}) ? 'block' : 'none',
 	height: 'calc(100% + 30px)',
 	position: 'absolute',
 	right: props.ledger ? 10 : 0,
@@ -87,7 +103,11 @@ const sharp = props => ({
 });
 
 const flat = props => ({
-	display: getIdsMinusPosition(props.noteIds) && props.ids.some(id => getIdsMinusPosition(props.noteIds).indexOf(id) > -1) ? 'block' : 'none',
+	display: getTruthyIds(props.noteIds) && props.ids.some(idArr => {
+		return getTruthyIds(props.noteIds).some(noteIds => {
+			return noteIds.join() === idArr.join();
+		})
+	}) ? 'block' : 'none',
 	fill: styles.almostBlack,
 	height: 'calc(100% + 42px)',
 	position: 'absolute',
@@ -139,55 +159,55 @@ class StandardNotation extends React.Component {
 				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
-						<SharpSVG ids={["g1s4f"]} noteIds={noteIds} />
-						<SharpSVG stepDown ids={["f1s2f"]} noteIds={noteIds} />
+						<SharpSVG ids={[[1, 4]]} noteIds={noteIds} />
+						<SharpSVG stepDown ids={[[1, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG stepUp ids={["a1s5f"]} noteIds={noteIds} />
+						<NoteSVG stepUp ids={[[1, 5]]} noteIds={noteIds} />
 						<div css={line({
-							ids: ["a1s5f"],
+							ids: [[1, 5]],
 							noteIds
 						})} />
-						<NoteSVG ids={["g1s3f", "g1s4f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["f1s1f", "f1s2f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[1, 3], [1, 4]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[1, 1], [1, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
 				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
-						<SharpSVG stepDown ids={["d2s4f"]} noteIds={noteIds} />
-						<FlatSVG ids={["e2s4f"]} noteIds={noteIds} />
-						<FlatSVG stepDown ids={["d2s2f"]} noteIds={noteIds} />
+						<SharpSVG stepDown ids={[[2, 4, 's']]} noteIds={noteIds} />
+						<FlatSVG ids={[[2, 4, 'f']]} noteIds={noteIds} />
+						<FlatSVG stepDown ids={[[2, 2, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG ids={["e1s", "e2s5f", "e2s4f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["d2s2f", "d2s3f", "d2s4f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[1, 0], [2, 5], [2, 4, 'f']]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[2, 2, 'f'], [2, 3], [2, 4, 's']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
 				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
-						<SharpSVG ids={["c2s2f", "c3s6f"]} noteIds={noteIds} />
-						<FlatSVG stepDown ids={["b3s3f"]} noteIds={noteIds} />
+						<SharpSVG ids={[[2, 2, 's'], [3, 6]]} noteIds={noteIds} />
+						<FlatSVG stepDown ids={[[3, 3, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG ids={["c2s1f", "c2s2f", "c3s5f", "c3s6f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["b2s", "b3s3f", "b3s4f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[2, 1], [2, 2, 's'], [3, 5], [3, 6]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[2, 0], [3, 3, 'f'], [3, 4]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
 				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
-						<SharpSVG stepDown ids={["g3s1f", "g4s6f"]} noteIds={noteIds} />
-						<SharpSVG ids={["a3s3f"]} noteIds={noteIds} />
-						<FlatSVG ids={["a3s1f"]} noteIds={noteIds} />
+						<SharpSVG stepDown ids={[[3, 1, 's'], [4, 6]]} noteIds={noteIds} />
+						<SharpSVG ids={[[3, 3, 's']]} noteIds={noteIds} />
+						<FlatSVG ids={[[3, 1, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG ids={["a3s1f", "a3s2f", "a3s3f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["g3s", "g3s1f", "g4s5f", "g4s6f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[3, 1, 'f'], [3, 2], [3, 3, 's']]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[3, 0], [3, 1, 's'], [4, 5], [4, 6]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
@@ -196,25 +216,25 @@ class StandardNotation extends React.Component {
 						<TrebleClef />
 					</div>
 					<div css={cell}>
-						<SharpSVG ids={["f4s4f"]} noteIds={noteIds} />
+						<SharpSVG ids={[[4, 4]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG ids={["f4s3f", "f4s4f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["e4s2f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[4, 3], [4, 4]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[4, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
 				<div css={row}>
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true})}>
-						<SharpSVG ids={["d4s1f"]} noteIds={noteIds} />
+						<SharpSVG ids={[[4, 1]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noBorder: true, noteCol: true})}>
-						<NoteSVG ids={["d4s", "d4s1f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["c5s3f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[4, 0], [4, 1]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[5, 3]]} noteIds={noteIds} />
 						<div css={line({
 							stepDown: true,
-							ids: ["c5s3f", "b5s2f", "a5s", "a6s4f", "g6s3f", "f6s1f", "f6s2f", "e6s"],
+							ids: [[5, 3], [5, 2], [5, 0], [6, 4], [6, 3], [6, 1], [6, 2], [6, 0]],
 							noteIds
 						})} />
 					</div>
@@ -223,14 +243,14 @@ class StandardNotation extends React.Component {
 				<div css={row}>
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true})}>
-						<FlatSVG stepDown ledger ids={["a6s4f"]} noteIds={noteIds} />
+						<FlatSVG stepDown ledger ids={[[6, 4]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noBorder: true, noteCol: true})}>
-						<NoteSVG ids={["b5s2f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["a5s", "a6s4f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[5, 2]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[5, 0], [6, 4]]} noteIds={noteIds} />
 						<div css={line({
 							stepDown: true,
-							ids: ["a5s", "a6s4f", "g6s3f", "f6s1f", "f6s2f", "e6s"],
+							ids: [[5, 0], [6, 4], [6, 3], [6, 1], [6, 2], [6, 0]],
 							noteIds
 						})} />
 					</div>
@@ -239,14 +259,14 @@ class StandardNotation extends React.Component {
 				<div css={row}>
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true})}>
-						<SharpSVG stepDown ledger ids={["f6s2f"]} noteIds={noteIds} />
+						<SharpSVG stepDown ledger ids={[[6, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noBorder: true, noteCol: true})}>
-						<NoteSVG ids={["g6s3f"]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={["f6s1f", "f6s2f"]} noteIds={noteIds} />
+						<NoteSVG ids={[[6, 3]]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[6, 1], [6, 2]]} noteIds={noteIds} />
 						<div css={line({
 							stepDown: true,
-							ids: ["f6s1f", "f6s2f", "e6s"],
+							ids: [[6, 1], [6, 2], [6, 0]],
 							noteIds
 						})} />
 					</div>
@@ -256,7 +276,7 @@ class StandardNotation extends React.Component {
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true, noteCol: true})}>
-						<NoteSVG ids={["e6s"]} noteIds={noteIds} />
+						<NoteSVG ids={[[6, 0]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noBorder: true, lastCol: true})} />
 				</div>
@@ -266,7 +286,7 @@ class StandardNotation extends React.Component {
 }
 
 StandardNotation.propTypes = {
-	noteIds: PropTypes.arrayOf(PropTypes.string),
+	noteIds: PropTypes.arrayOf(PropTypes.array),
 };
 
 export default StandardNotation;
