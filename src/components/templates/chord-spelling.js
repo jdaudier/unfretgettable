@@ -60,7 +60,7 @@ class ChordSpelling extends React.Component {
 }
 
 ChordSpelling.propTypes = {
-	noteIds: PropTypes.arrayOf(PropTypes.string),
+	noteIds: PropTypes.arrayOf(PropTypes.array),
 	renderLastPattern: PropTypes.func.isRequired,
 	renderNextQuestion: PropTypes.func.isRequired,
 	isLastItem: PropTypes.bool.isRequired,

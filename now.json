@@ -16,6 +16,7 @@
 			"dest": "/static/$1"
 		},
 		{ "src": "/favicon.ico", "dest": "/favicon.ico" },
+		{ "src": "/music-book.jpg", "dest": "/music-book.jpg" },
 		{ "src": "/asset-manifest.json", "dest": "/asset-manifest.json" },
 		{ "src": "/manifest.json", "dest": "/manifest.json" },
 		{ "src": "/precache-manifest.(.*)", "dest": "/precache-manifest.$1" },
