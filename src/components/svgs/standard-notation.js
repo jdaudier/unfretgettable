@@ -216,11 +216,11 @@ class StandardNotation extends React.Component {
 						<TrebleClef />
 					</div>
 					<div css={cell}>
-						<SharpSVG ids={[[4, 4]]} noteIds={noteIds} />
+						<SharpSVG ids={[[4, 4], [4, 3, 's']]} noteIds={noteIds} />
 						<FlatSVG ids={[[4, 3, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
-						<NoteSVG ids={[[4, 3], [4, 3, 'f'], [4, 4]]} noteIds={noteIds} />
+						<NoteSVG ids={[[4, 3], [4, 3, 'f'], [4, 3, 's'], [4, 4]]} noteIds={noteIds} />
 						<NoteSVG stepDown ids={[[4, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
