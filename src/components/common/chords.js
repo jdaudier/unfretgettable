@@ -1,4 +1,4 @@
-export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7', 'Bm/A', 'Dsus2', 'Bm7(♭5)', 'B♭9(♭5)', 'F#m7(♭5)', 'Am/F#', 'C7/G'];
+export const chords = ['C', 'C7', 'G7', 'G', 'D7', 'Em', 'D', 'A7', 'Am', 'Dm', 'Fmaj7', 'A', 'D/F#', 'Bm/F#', 'Cadd9', 'C/E', 'E', 'E7', 'Cm/G', 'Am7', 'Dm7', 'Em7', 'Gdim', 'G/B', 'Gsus4/B', 'Am6', 'C/G', 'F', 'B7', 'C#m/G#', 'Fm', 'F#m', 'Gm', 'Cmaj7', 'Bm/A', 'Dsus2', 'Bm7(♭5)', 'B♭9(♭5)', 'F#m7(♭5)', 'Am/F#', 'C7/G', 'Am/G'];
 
 export const chordInputMapping = {
 	C: 'C',
@@ -31,6 +31,11 @@ export const chordInputMapping = {
 	'AMIN/F#': 'Am/F#',
 	'AMIN / F#': 'Am/F#',
 	'A MIN / F#': 'Am/F#',
+	'AM/G': 'Am/G',
+	'AM / G': 'Am/G',
+	'AMIN/G': 'Am/G',
+	'AMIN / G': 'Am/G',
+	'A MIN / G': 'Am/G',
 	DM: 'Dm',
 	'D M': 'Dm',
 	'D MINOR': 'Dm',
@@ -208,6 +213,11 @@ export const chordToNotesMapping = {
 	Am: {
 		1: [[1, 0], [2, 1, 1], [3, 2, 3], [4, 2, 2], [5, 0], [6, 'x']],
 		chordSpelling: [[1, 0], [2, 1], [3, 2]],
+		position: 1,
+	},
+	'Am/G': {
+		1: [[1, 0], [2, 1, 1], [3, 2, 3], [4, 2, 2], [5, 0], [6, 3, 4]],
+		chordSpelling: [[1, 0], [2, 1], [3, 2], [3, 0, undefined, 'l']],
 		position: 1,
 	},
 	Dm: {
