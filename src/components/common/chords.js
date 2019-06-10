@@ -189,7 +189,7 @@ export const chordToNotesMapping = {
 	},
 	C6: {
 		1: [[1, 0], [2, 1, 1], [3, 2, 3], [4, 2, 2], [5, 3, 4], [6, 'x']],
-		chordSpelling: [[3, 2], [4, 2], [5, 3]],
+		chordSpelling: [[3, 0], [3, 2, undefined, 'r'], [4, 2], [5, 3]],
 		position: 1,
 	},
 	C7: {
@@ -258,7 +258,7 @@ export const chordToNotesMapping = {
 	},
 	'Dm/C': {
 		1: [[1, 1, 1], [2, 3, 4], [3, 2, 2], [4, 0], [5, 3, 3], [6, 'x']],
-		chordSpelling: [[1, 1], [2, 3], [3, 2], [5, 3]],
+		chordSpelling: [[3, 2], [4, 0], [4, 3], [5, 3, undefined, 'l']],
 		position: 1,
 	},
 	Fmaj7: {

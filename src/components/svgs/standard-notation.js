@@ -84,8 +84,11 @@ const line = props => ({
 		})
 	}) ? 'block' : 'none',
 	height: 4,
+	left: getNotePosition({noteIds: props.noteIds, ids: props.ids}),
 	position: 'absolute',
 	top: props.stepDown ? '100%' : -4,
+	transform: props.stepUp ? 'translate(-50%, -50%)' :
+		props.stepDown ? 'translate(-50%, 50%)' : 'translateX(-50%)',
 	width: '100%',
 });
 
