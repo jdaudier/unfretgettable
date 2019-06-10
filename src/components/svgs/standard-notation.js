@@ -157,6 +157,16 @@ class StandardNotation extends React.Component {
 					<div css={cell({noBorder: true, lastCol: true})} />
 				</div>
 				<div css={row}>
+					<div css={cell({noBorder: true})} />
+					<div css={cell({noBorder: true})}>
+						<FlatSVG ids={[[1, 6]]} noteIds={noteIds} />
+					</div>
+					<div css={cell({noBorder: true, noteCol: true})}>
+						<NoteSVG ids={[[1, 6]]} noteIds={noteIds} />
+					</div>
+					<div css={cell({noBorder: true, lastCol: true})} />
+				</div>
+				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
 						<SharpSVG ids={[[1, 4]]} noteIds={noteIds} />
@@ -165,7 +175,7 @@ class StandardNotation extends React.Component {
 					<div css={cell({noteCol: true})}>
 						<NoteSVG stepUp ids={[[1, 5]]} noteIds={noteIds} />
 						<div css={line({
-							ids: [[1, 5]],
+							ids: [[1, 5], [1,6]],
 							noteIds
 						})} />
 						<NoteSVG ids={[[1, 3], [1, 4]]} noteIds={noteIds} />

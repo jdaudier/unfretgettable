@@ -279,7 +279,7 @@ export const chordToNotesMapping = {
 	},
 	'C7/G': {
 		1: [[1, 0], [2, 1, 1], [3, 3, 4], [4, 2, 2], [5, 'x'], [6, 3, 3]],
-		chordSpelling: [[1, 0], [2, 1], [3, 3, 's'], [3, 0, undefined, 'r']],
+		chordSpelling: [[1, 0], [1, 6], [2, 1], [3, 0]],
 		position: 1,
 	},
 	Am7: {

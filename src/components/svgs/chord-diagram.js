@@ -631,7 +631,14 @@ class ChordDiagram extends React.Component {
 							</div>
 						</div>
 						<div css={cell({noBorder: false})} />
-						<div css={cell({noBorder: false})} />
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [1, 6],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([1, 6], noteIds)}
+							</div>
+						</div>
 						<div css={cell({noBorder: false})} />
 					</div>
 					<div css={fret({
