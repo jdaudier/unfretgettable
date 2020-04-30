@@ -321,7 +321,7 @@ export const chordToNotesMapping = {
 	},
 	'Cm/A': {
 		1: [[1, 3, 1], [2, 4, 2], [3, 5, 4], [4, 5, 3], [5, 0], [6, 'x']],
-		chordSpelling: [[2, 4, 'f'], [3, 5], [4, 5], [5, 0]],
+		chordSpelling: [[4, 1, 'f'], [4, 5], [5, 0], [5, 3]],
 		position: 3,
 	},
 	'C#m/G#': {
@@ -336,7 +336,7 @@ export const chordToNotesMapping = {
 	},
 	'C/D': {
 		1: [[1, 0], [2, 1, 1], [3, 0], [4, 0], [5, 'x'], [6, 'x']],
-		chordSpelling: [[1, 0], [2, 1], [3, 0], [4, 0]],
+		chordSpelling: [[1, 3], [1, 0], [2, 1], [4, 0]],
 		position: 1,
 	},
 	'C7/G': {
@@ -357,7 +357,7 @@ export const chordToNotesMapping = {
 	},
 	'D#dim': {
 		1: [[1, 2, 4], [2, 1, 2], [3, 2, 3], [4, 1, 1], [5, 'x'], [6, 'x']],
-		chordSpelling: [[2, 1], [3, 2], [4, 1], [4, 4]],
+		chordSpelling: [[2, 1], [3, 2], [4, 1, 's'], [4, 4]],
 		position: 1,
 	},
 	'G/B': {
@@ -382,7 +382,7 @@ export const chordToNotesMapping = {
 	},
 	B7: {
 		1: [[1, 2, 4], [2, 0], [3, 2, 3], [4, 1, 1], [5, 2, 2], [6, 'x']],
-		chordSpelling: [[3, 2], [4, 4], [4, 1], [5, 2]],
+		chordSpelling: [[3, 2], [4, 4], [4, 1, 's'], [5, 2]],
 		position: 1,
 	},
 	'F#m': {
@@ -397,6 +397,7 @@ export const chordToNotesMapping = {
 	},
 	Em7: {
 		1: [[1, 0], [2, 3, 4], [3, 0], [4, 2, 3], [5, 2, 2], [6, 0]],
+		2: [[1, 0], [2, 0], [3, 0], [4, 0], [5, 2, 2], [6, 0]],
 		chordSpelling: [[2, 3], [2, 0], [3, 0], [4, 2]],
 		position: 1,
 	},
@@ -442,7 +443,7 @@ export const chordToNotesMapping = {
 	},
 	'B♭/F': {
 		1: [[1, 1, 1], [2, 3, 4], [3, 3, 3], [4, 3, 2], [5, 'x'], [6, 'x']],
-		chordSpelling: [[1, 1], [2, 3], [3, 3, 's'], [4, 3]],
+		chordSpelling: [[2, 0, 'f'], [2, 3], [4, 3]],
 		position: 1,
 	},
 	'F#m7(♭5)': {

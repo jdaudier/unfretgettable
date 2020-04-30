@@ -231,21 +231,21 @@ class StandardNotation extends React.Component {
 					<div css={cell}>
 						<SharpSVG ids={[[4, 4], [4, 4, 's'], [4, 3, 's']]} noteIds={noteIds} />
 						<FlatSVG ids={[[4, 3, 'f']]} noteIds={noteIds} />
-						<FlatSVG stepDown ids={[[4, 2, 'f']]} noteIds={noteIds} />
+						<FlatSVG stepDown ids={[[4, 1, 'f'], [4, 2, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
 						<NoteSVG ids={[[4, 3], [4, 3, 'f'], [4, 3, 's'], [4, 4], [4, 4, 's']]} noteIds={noteIds} />
-						<NoteSVG stepDown ids={[[4, 2], [4, 2, 'f']]} noteIds={noteIds} />
+						<NoteSVG stepDown ids={[[4, 1, 'f'], [4, 2], [4, 2, 'f']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
 				</div>
 				<div css={row}>
 					<div css={cell({noBorder: true})} />
 					<div css={cell({noBorder: true})}>
-						<SharpSVG ids={[[4, 1]]} noteIds={noteIds} />
+						<SharpSVG ids={[[4, 1, 's']]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noBorder: true, noteCol: true})}>
-						<NoteSVG ids={[[4, 0], [4, 1]]} noteIds={noteIds} />
+						<NoteSVG ids={[[4, 0], [4, 1, 's']]} noteIds={noteIds} />
 						<NoteSVG stepDown ids={[[5, 3]]} noteIds={noteIds} />
 						<div css={line({
 							stepDown: true,
