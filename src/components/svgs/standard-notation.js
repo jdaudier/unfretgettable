@@ -172,7 +172,7 @@ class StandardNotation extends React.Component {
 				<div css={row}>
 					<div css={cell} />
 					<div css={cell}>
-						<SharpSVG ids={[[1, 4]]} noteIds={noteIds} />
+						<SharpSVG ids={[[1, 4], [1, 4, 's']]} noteIds={noteIds} />
 						<SharpSVG stepDown ids={[[1, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({noteCol: true})}>
@@ -181,7 +181,7 @@ class StandardNotation extends React.Component {
 							ids: [[1, 5], [1,6], [1, 7]],
 							noteIds
 						})} />
-						<NoteSVG ids={[[1, 3], [1, 4]]} noteIds={noteIds} />
+						<NoteSVG ids={[[1, 3], [1, 4], [1, 4, 's']]} noteIds={noteIds} />
 						<NoteSVG stepDown ids={[[1, 1], [1, 2]]} noteIds={noteIds} />
 					</div>
 					<div css={cell({lastCol: true})} />
