@@ -293,7 +293,7 @@ export const chordToNotesMapping = {
 	},
 	C7sus4: {
 		1: [[1, 'x'], [2, 1, 1], [3, 3, 4], [4, 3, 3], [5, 3, 2], [6, 'x']],
-		chordSpelling: [[3, 3, 's'], [4, 3], [5, 3]],
+		chordSpelling: [[2, 0, 'f'], [4, 3], [5, 3]],
 		position: 1,
 	},
 	'C/E': {
