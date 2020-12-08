@@ -369,7 +369,7 @@ export const chordToNotesMapping = {
 	},
 	Asus2: {
 		1: [[1, 0], [2, 0], [3, 2, 3], [4, 2, 2], [5, 0], [6, 'x']],
-		chordSpelling: [[1, 0], [2, 0, undefined, 'r'], [3, 2], [4, 2], [5, 0]],
+		chordSpelling: [[2, 0, undefined, 'r'], [3, 2], [4, 2]],
 		position: 1,
 	},
 	'D/F#': {
