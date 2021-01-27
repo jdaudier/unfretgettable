@@ -194,7 +194,9 @@ class ChordDiagram extends React.Component {
 
 	getFinger(noteIds, origNoteIds) {
 		const foundIndex = origNoteIds.findIndex(id => id[0] === noteIds[0] && id[1] === noteIds[1]);
-		return origNoteIds[foundIndex]?  origNoteIds[foundIndex][2] : undefined;
+		return origNoteIds[foundIndex]?
+			typeof origNoteIds[foundIndex][2] === 'number' ? origNoteIds[foundIndex][2] : undefined
+			: undefined;
 	}
 
 	hasNoOpenStrings(noteIdsWithoutFinger) {
