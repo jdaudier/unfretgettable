@@ -620,8 +620,22 @@ class ChordDiagram extends React.Component {
 						number: 6,
 						chord,
 					})}>
-						<div css={cell({noBorder: false})} />
-						<div css={cell({noBorder: false})} />
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [6, 6],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([6, 6], noteIds)}
+							</div>
+						</div>
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [5, 6],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([5, 6], noteIds)}
+							</div>
+						</div>
 						<div css={cell({noBorder: false})}>
 							<div css={note({
 								id: [4, 6],
@@ -660,7 +674,14 @@ class ChordDiagram extends React.Component {
 						number: 7,
 						chord,
 					})}>
-						<div css={cell({noBorder: false})} />
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [6, 7],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([6, 7], noteIds)}
+							</div>
+						</div>
 						<div css={cell({noBorder: false})}>
 							<div css={note({
 								id: [5, 7],
@@ -669,8 +690,21 @@ class ChordDiagram extends React.Component {
 								{this.getFinger([5, 7], noteIds)}
 							</div>
 						</div>
-						<div css={cell({noBorder: false})} />
 						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [4, 7],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([4, 7], noteIds)}
+							</div>
+						</div>
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [3, 7],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([3, 7], noteIds)}
+							</div>
 							<div css={fretDot} />
 						</div>
 						<div css={cell({noBorder: false})}>
@@ -695,10 +729,38 @@ class ChordDiagram extends React.Component {
 						number: 8,
 						chord,
 					})}>
-						<div css={cell({noBorder: false})} />
-						<div css={cell({noBorder: false})} />
-						<div css={cell({noBorder: false})} />
-						<div css={cell({noBorder: false})} />
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [6, 8],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([6, 8], noteIds)}
+							</div>
+						</div>
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [5, 8],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([5, 8], noteIds)}
+							</div>
+						</div>
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [4, 8],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([4, 8], noteIds)}
+							</div>
+						</div>
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [3, 8],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([3, 8], noteIds)}
+							</div>
+						</div>
 						<div css={cell({noBorder: false})}>
 							<div css={note({
 								id: [2, 8],
@@ -707,7 +769,14 @@ class ChordDiagram extends React.Component {
 								{this.getFinger([2, 8], noteIds)}
 							</div>
 						</div>
-						<div css={cell({noBorder: false})} />
+						<div css={cell({noBorder: false})}>
+							<div css={note({
+								id: [1, 8],
+								noteIds: noteIdsWithoutFinger,
+							})}>
+								{this.getFinger([1, 8], noteIds)}
+							</div>
+						</div>
 						<div css={cell({noBorder: false})} />
 					</div>
 				</div>
